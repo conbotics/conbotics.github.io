@@ -1,0 +1,38 @@
+name: Deploy Docs
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.9
+      - name: Install dependencies
+        run: |
+          pip install mkdocs mkdocs-material doxygen
+      - name: Generate Doxygen docs
+        run: doxygen Doxyfile
+      - name: Build MkDocs site
+        run: mkdocs build
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          publish_branch: master
+          force_orphan: true
+
+	  external_repository: username/public-docs-repo  # change to your public repo slug
+          deploy_key: ${{ secrets.DEPLOY_KEY }}           # use this line if you set up a deploy key
+          # Or, for PAT, use:
+          # personal_token: ${{ secrets.PERSONAL_TOKEN }}

@@ -1,0 +1,3 @@
+[submodule "docs/cb_docs"]
+	path = docs/cb_docs
+	url = git@github.com:conbotics/cb_docs.git
