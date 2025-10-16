@@ -3,5 +3,5 @@ theme:
   name: 'material'
 nav:
   - Home: index.md
-  - API Documentation: doxygen/index.html
-  - API Reference: api/index.html
+  - Troubleshooting: cb_docs/support/troubleshooting.md
+

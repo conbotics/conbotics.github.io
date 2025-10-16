@@ -1,4 +1,4 @@
-name: Deploy Docs
+name: Update Submodules and Deploy Docs
 
 on:
   push:
@@ -6,24 +6,64 @@ on:
       - master
 
 jobs:
-  build:
+  update-submodules:
     runs-on: ubuntu-latest
+    outputs:
+      updated: ${{ steps.update-submodules.outputs.updated }}
     steps:
-      - name: Checkout
+      - name: Checkout main repo with submodules
         uses: actions/checkout@v4
         with:
+          submodules: recursive
           fetch-depth: 0
+
+      - name: Set up Git user
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Update submodules to latest
+        id: update-submodules
+        run: |
+          git submodule update --remote --merge
+          # Check if any submodule was updated
+          if ! git diff --quiet; then
+            echo "submodules updated"
+            echo ::set-output name=updated::true
+            git add .
+            git commit -m "Update submodule references to latest"
+            git push
+          else
+            echo "No submodule updates"
+            echo ::set-output name=updated::false
+          fi
+
+  deploy-docs:
+    needs: update-submodules
+    if: needs.update-submodules.outputs.updated == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main repo with submodules
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: 3.9
+
       - name: Install dependencies
         run: |
           pip install mkdocs mkdocs-material doxygen
+
       - name: Generate Doxygen docs
         run: doxygen Doxyfile
+
       - name: Build MkDocs site
         run: mkdocs build
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
@@ -31,8 +71,3 @@ jobs:
           publish_dir: ./site
           publish_branch: master
           force_orphan: true
-
-	  external_repository: username/public-docs-repo  # change to your public repo slug
-          deploy_key: ${{ secrets.DEPLOY_KEY }}           # use this line if you set up a deploy key
-          # Or, for PAT, use:
-          # personal_token: ${{ secrets.PERSONAL_TOKEN }}
