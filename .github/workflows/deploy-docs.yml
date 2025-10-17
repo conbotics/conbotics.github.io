@@ -11,9 +11,17 @@ jobs:
     outputs:
       updated: ${{ steps.update-submodules.outputs.updated }}
     steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.DOCS_APP_ID }}
+          private-key: ${{ secrets.DOCS }}
+
       - name: Checkout main repo with submodules
         uses: actions/checkout@v4
         with:
+          token: ${{ steps.app-token.outputs.token }}          
           submodules: recursive
           fetch-depth: 0
 
@@ -43,9 +51,17 @@ jobs:
     if: needs.update-submodules.outputs.updated == 'true'
     runs-on: ubuntu-latest
     steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.DOCS_APP_ID }}
+          private-key: ${{ secrets.DOCS }}
+
       - name: Checkout main repo with submodules
         uses: actions/checkout@v4
         with:
+          token: ${{ steps.app-token.outputs.token }}
           submodules: recursive
           fetch-depth: 0
 
