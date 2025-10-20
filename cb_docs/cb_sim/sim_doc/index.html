@@ -1,0 +1,1205 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Documentation - MalerRoboter Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.84d31ad4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#documentation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="MalerRoboter Docs" class="md-header__button md-logo" aria-label="MalerRoboter Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MalerRoboter Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Documentation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="MalerRoboter Docs" class="md-nav__button md-logo" aria-label="MalerRoboter Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    MalerRoboter Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../support/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Table of Contents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-set-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Set-Up
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-startrun" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Start/Run
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Debugging
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-set-up_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Set-Up
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Set-Up">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#odometry-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odometry tuning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#camera-set-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      Camera Set-Up
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-new-worlds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating new worlds
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#current-ipsaddresses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current IP's/Addresses
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-startrun-the-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Start/Run the simulation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Start/Run the simulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 local
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 local">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-start-gazebo-simulation-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to start gazebo simulation pipeline
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-remote-headless-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 remote (headless-mode)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 remote (headless-mode)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssh-session-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ssh session #1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-session-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      ssh session #2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      local session
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-session-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      ssh session #3
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-session-4-gazebo-streaming" class="md-nav__link">
+    <span class="md-ellipsis">
+      ssh session #4 (Gazebo streaming)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-debugging_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Debugging
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Debugging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#related-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related Issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Related Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-1-shift-in-odometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue #1 - Shift in Odometry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-2-angular-offset-of-octomap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue #2 - Angular offset of Octomap
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#status_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-3-misallignment-of-robot-towards-wall" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue #3 - Misallignment of robot towards wall
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#status_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-4-wall-on-the-right-of-the-robot-shows-1-big-hole" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue #4 - Wall on the right of the robot shows 1 big hole
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Issue #4 - Wall on the right of the robot shows 1 big hole">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#status_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-5-faulty-segmentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue #5 - faulty segmentation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Issue #5 - faulty segmentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#status_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-6-missing-camera-alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue #6 - missing camera alignment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Issue #6 - missing camera alignment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#status_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minor-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Minor Issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Minor Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#missing-base-model-in-gzweb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Missing Base Model in gzweb
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missing-projection-removal-of-sprayarm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Missing projection removal of sprayarm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gui-shows-disconnected" class="md-nav__link">
+    <span class="md-ellipsis">
+      GUI shows Disconnected
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gazebo-not-properly-starting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gazebo not properly starting
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#active-warningserrors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Active Warnings/Errors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Active Warnings/Errors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gazebo-related" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gazebo related:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#others" class="md-nav__link">
+    <span class="md-ellipsis">
+      Others:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      TO-DO:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="TO-DO:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#focus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Focus:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Focus:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#odometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odometry
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tasks:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#know-how" class="md-nav__link">
+    <span class="md-ellipsis">
+      Know-How:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-convert-modular-urdf-ie-multiple-xacros-into-sdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to convert modular URDF (I.e. multiple xacros) into .SDF
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to convert modular URDF (I.e. multiple xacros) into .SDF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gzweb-set-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      GZWEB Set-Up
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gzweb-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      GZWEB Usage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="documentation">Documentation</h1>
+<h2 id="table-of-contents">Table of Contents</h2>
+<h3 id="1-set-up">1. Set-Up</h3>
+<h3 id="2-startrun">2. Start/Run</h3>
+<h3 id="3-debugging">3. Debugging</h3>
+<hr />
+<h2 id="1-set-up_1">1. Set-Up</h2>
+<p>make sure following repos are checked out under simulation branch <strong>feat-sim</strong>:</p>
+<ol>
+<li>cb_sprayarm</li>
+<li>cb_base - is right now on <code>fix-sim-odometry</code></li>
+<li>cb_bringup</li>
+<li>cb_config</li>
+<li>cb_core</li>
+<li>cb_vision</li>
+</ol>
+<p>Make sure both <code>simulation</code> flags (<code>config/general/process/simulation</code> and <code>config/sprayarm/settings/simulation</code>) are set to <code>true</code> inside <code>cb_config/process_configs/process.yaml</code></p>
+<h4 id="odometry-tuning">Odometry tuning</h4>
+<ul>
+<li>config file for odometry (I.e. which odometry topics to use) is located in <code>/cb/base/cb_navigation/cb_perception/config/ukf/ukf_cfg_tuned.yaml</code></li>
+</ul>
+<h4 id="camera-set-up">Camera Set-Up</h4>
+<ul>
+<li>Inside <code>cb_sprayarm_description/urdf/modules</code> open <strong>gazebo.xacro</strong></li>
+<li>This file configures the Gazebo simulation of the spray arm robot, defining materials, integrating ROS control, and setting up two depth cameras with specific parameters (FOV, resolution, update rate, clipping) and plugins to publish depth and point cloud data to ROS topics.</li>
+</ul>
+<p><strong>Camera semantic segmentation</strong>
+- <code>cb_gazebo_plugins/src/gazebo_ros_semantic_camera.cpp</code></p>
+<h4 id="creating-new-worlds">Creating new worlds</h4>
+<p>start gazebo standalone (so add. models I.e. Base, wheels etc. dont get loaded in and metrics get saved in world file)</p>
+<pre><code class="language-bash">/usr/bin/gazebo ~/catkin_ws/src/cb_base/cb_base_gazebo/worlds/room_90s.world
+</code></pre>
+<p>(removed gazebo alias - command gazebo works again)</p>
+<ul>
+<li>Place objects I.e. boxes - transform S/R/T (Scale/Rotation/Translation)</li>
+<li>After editing - save as new world. Edit Labels accordingly in the <code>.world</code> file for semantic segmentation.</li>
+</ul>
+<p><strong>Labels are:</strong> wall; ceiling; floor; other; door; window; person; suv; sprayarm</p>
+<h4 id="current-ipsaddresses">Current IP's/Addresses</h4>
+<ul>
+<li><code>192.168.1.101</code> - local ip</li>
+<li><code>100.114.232.9</code> - netbird ip</li>
+<li><a href="http://localhost:5173/"><code>http://localhost:5173/</code></a> - gui</li>
+<li><a href="http://172.18.0.2:5173/"><code>http://172.18.0.2:5173/</code></a> - gui - remote access?</li>
+<li><a href="http://localhost:8081"><code>http://localhost:8081</code></a> - gzweb</li>
+<li><a href="http://192.168.1.101:8081"><code>http://192.168.1.101:8081</code></a> - local gzweb access</li>
+<li><a href="http://100.114.232.9:8081"><code>http://100.114.232.9:8081</code></a> - remote gzweb access</li>
+</ul>
+<h2 id="2-startrun-the-simulation">2. Start/Run the simulation</h2>
+<h3 id="21-local">2.1 local</h3>
+<ul>
+<li>Start Docker Container:</li>
+</ul>
+<pre><code class="language-bash">start_ros
+</code></pre>
+<ul>
+<li>Join Docker Container from other sessions:</li>
+</ul>
+<pre><code class="language-bash">join_ros
+</code></pre>
+<h4 id="how-to-start-gazebo-simulation-pipeline">How to start gazebo simulation pipeline</h4>
+<ul>
+<li>Start the GUI-bridge in the first session:</li>
+</ul>
+<pre><code class="language-bash">bridge
+</code></pre>
+<p>launches: <code>roslaunch cb_bringup startup_node.launch</code></p>
+<ul>
+<li>Start simulation pipeline in another docker session:</li>
+</ul>
+<pre><code class="language-bash">gazebo_pipe
+</code></pre>
+<p>launches: <code>roslaunch cb_bringup start_all_gazebo.launch</code></p>
+<ul>
+<li>Set wall height under <code>settings for all walls</code> in the GUI</li>
+<li>Wait for a few seconds (~5 sec), then press the play button in gazebo (lower left hand corner)</li>
+<li>Access the <a href="http://172.18.0.2:5173">GUI</a></li>
+</ul>
+<h3 id="22-remote-headless-mode">2.2 remote (headless-mode)</h3>
+<pre><code class="language-bash">ssh conbotics@192.168.1.101
+</code></pre>
+<h4 id="ssh-session-1">ssh session #1</h4>
+<pre><code class="language-bash">start_ros_hl
+
+bridge
+</code></pre>
+<h4 id="ssh-session-2">ssh session #2</h4>
+<pre><code class="language-bash">join_ros_hl
+
+export DISPLAY=:1
+
+gazebo_pipe
+</code></pre>
+<h4 id="local-session">local session</h4>
+<pre><code class="language-bash">export ROS_MASTER_URI=http://192.168.1.101:11311
+export ROS_IP=&lt;&lt;remote-ip&gt;&gt;
+
+rviz
+</code></pre>
+<ul>
+<li>for future comfort - add a function to your bash script:</li>
+</ul>
+<pre><code class="language-bash">roslocal() {
+        export ROS_IP=192.168.1.253
+        export ROS_MASTER_URI=http://192.168.1.101:11311/
+        echo &quot;$ROS_IP&quot;
+        echo &quot;$ROS_MASTER_URI&quot;
+}
+</code></pre>
+<h4 id="ssh-session-3">ssh session #3</h4>
+<p>start the simulation by entering the following ros call:</p>
+<pre><code class="language-bash">rosservice call /gazebo/unpause_physics 
+
+                /  ... /pause_physics - to pause the simulation
+</code></pre>
+<ul>
+<li>in Rviz set <strong>fixed frame</strong> inside the global options header to <strong>map</strong></li>
+</ul>
+<h4 id="ssh-session-4-gazebo-streaming">ssh session #4 (Gazebo streaming)</h4>
+<p>start the streaming client for Gazebo</p>
+<pre><code class="language-bash">gzweb
+</code></pre>
+<p>launches: <code>cd ~/gzweb &amp;&amp; npm start -p 8081</code></p>
+<hr />
+<h2 id="3-debugging_1">3. Debugging</h2>
+<p>For Debugging purposes - if a plotting tool is required - look no further and use <code>PlotJuggler</code>.</p>
+<pre><code class="language-bash">rosrun plotjuggler plotjuggler
+</code></pre>
+<p>Can plot any topic - odometry, covariances etc...</p>
+<p><img alt="odometry plotjuggler" src="../images/9.png" title="plotjuggler odometry" />
+- great for analyzing causation and correlation
+- there is already an extensive config file for odometry testing inside <code>cb_bringup/config/plotjuggler/odometry_sim_2.xml</code></p>
+<h3 id="related-issues">Related Issues</h3>
+<h4 id="issue-1-shift-in-odometry">Issue #1 - Shift in Odometry</h4>
+<ul>
+<li>Odometry "stutters/jitters" with bigger "hickups" occasionally happening</li>
+</ul>
+<p><strong>related warning/info:</strong> Getting odometry callbacks and found error</p>
+<ul>
+<li><code>/spraybot/navigation/long_base_motion_server</code></li>
+<li><code>/spraybot/navigation/weighted_pid</code></li>
+</ul>
+<h4 id="status">Status:</h4>
+<ul>
+<li>Still occurs occasionally</li>
+</ul>
+<hr />
+<h4 id="issue-2-angular-offset-of-octomap">Issue #2 - Angular offset of Octomap</h4>
+<ul>
+<li>angle error gets worse over time as the odometry "jitters" carry on </li>
+<li>there are parts of the message that show an accurate representation - likely stemming from older scans/messages</li>
+</ul>
+<p><strong>Affected topics:</strong> <code>/spraybot/perception/slam_rt/cloud_map</code> &amp; <code>/spraybot/perception/slam_rt/octomap_full</code> </p>
+<p><img alt="/spraybot/perception/slam_rt/octomap_full" src="../images/1.png" title="/spraybot/perception/slam_rt/octomap_full" />
+<img alt="/spraybot/perception/slam_rt/cloud_map" src="../images/2.png" title="/spraybot/perception/slam_rt/cloud_map" /></p>
+<h4 id="status_1">Status:</h4>
+<ul>
+<li>I used plotjuggler to analyze the odometries behaviour - on the right is the resulting odometry post kalman fusion - on the left the individual topics that make up the fusion</li>
+<li>I found the wheel odometry was publishing a topic regarding rotation (yaw) that only published 0 - making the resulting odometry oscillate between 0 and another odometry part values</li>
+</ul>
+<p><strong>Affected topics:</strong> <code>yaw; yaw velocity</code></p>
+<p><img alt="Plot_Compare_ang_vel_z" src="../images/11.png" title="plotjuggler Angular Velocity compare of z" /></p>
+<ul>
+<li>Wheel odom for yaw and vel.-yaw was included in the ukf_cfg_tuned.yaml</li>
+</ul>
+<hr />
+<h4 id="issue-3-misallignment-of-robot-towards-wall">Issue #3 - Misallignment of robot towards wall</h4>
+<ul>
+<li>paint process aborts with an error due to robot gradually aligning with the "warped" wall<ul>
+<li>no feasible path can be found</li>
+</ul>
+</li>
+</ul>
+<h4 id="status_2">Status:</h4>
+<ul>
+<li>After testing the odometry topics and excluding possible faulty topics - the angular offset has vanished but the translatory offset still appears sometimes</li>
+<li>Error somewhat persists - does not occur as often</li>
+</ul>
+<hr />
+<h4 id="issue-4-wall-on-the-right-of-the-robot-shows-1-big-hole">Issue #4 - Wall on the right of the robot shows 1 big hole</h4>
+<ul>
+<li>to me this issue seems related to the arm "projection" removal - as that wall section starts off as being represented correctly for the most part</li>
+</ul>
+<p><img alt="/spraybot/perception/obstacle_extraction_transformed_octomap" src="../images/3.png" title="/spraybot/perception/obstacle_extraction_transformed_octomap" />
+<img alt="/spraybot/perception/obstacle_extraction_transformed_octomap" src="../images/4.png" title="/spraybot/perception/obstacle_extraction_transformed_octomap" />
+<img alt="/spraybot/perception/obstacle_extraction_transformed_octomap" src="../images/5.png" title="/spraybot/perception/obstacle_extraction_transformed_octomap" /></p>
+<h5 id="status_3">Status:</h5>
+<p>For reasons beyond me that does not seem to be a problem anymore. </p>
+<hr />
+<h4 id="issue-5-faulty-segmentation">Issue #5 - faulty segmentation</h4>
+<ul>
+<li>arbitrary point classes are assigned - see image</li>
+<li>(used camera plugin: <code>libgazebo_ros_semantic_camera</code>)</li>
+</ul>
+<p><img alt="libgazebo_ros_semantic_camera" src="../images/6.png" title="libgazebo_ros_semantic_camera" />
+<img alt="libgazebo_ros_semantic_camera" src="../images/7.png" title="libgazebo_ros_semantic_camera" /></p>
+<h5 id="status_4">Status:</h5>
+<p>Fixed by editing the semantic camera plugin node code. Didnt register objects for segmentation if the Label had uppercase spelling.</p>
+<p><strong>New World including "windows" :</strong></p>
+<p><img alt="Paint_process_working_seg" src="../images/8.png" title="ros_semantic_camera" />
+<img alt="Paint_process_working_seg" src="../images/12.png" title="ros_semantic_camera" />
+<img alt="segmentation_windows" src="../images/10.png" title="ros_semantic_camera" />
+- lower image still shows a faulty "projection" onto wall cloud but that is of no consquence ...</p>
+<p>##### Sub-Issue:
+    - Segmentation of arm in the image gets projected onto wall. I.e. Arm removal in image (masking) isint working yet. 
+      - Arm segmentation color-mapping set to wall color for now.</p>
+<hr />
+<h4 id="issue-6-missing-camera-alignment">Issue #6 - missing camera alignment</h4>
+<ul>
+<li>
+<p>robot does not drive parallel to the wall - instead it does the corner alignment and starts the paint process from there on out</p>
+<h5 id="status_5">Status:</h5>
+<ul>
+<li>as of now, robot performs camer alignment - this was possibly due to <code>use_fake_states</code> being turned on in the <code>process.yaml</code> </li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="minor-issues">Minor Issues</h3>
+<h4 id="missing-base-model-in-gzweb">Missing Base Model in gzweb</h4>
+<ul>
+<li>
+<p>since base isint part of gazebos model inventory - it needs to be hosted as part of the local models</p>
+</li>
+<li>
+<p>before re-deploying gzweb with the <code>-m</code> flag - the <strong>GAZEBO_MODEL_PATH</strong> needs to be set and the models need to be in that directory - or atleast a simlink - preferrably of the package containing the meshes (no path change in urdf/xacro needed then)</p>
+</li>
+</ul>
+<hr />
+<h4 id="missing-projection-removal-of-sprayarm">Missing projection removal of sprayarm</h4>
+<ul>
+<li>since the sprayarm enters the field of view occasioanlly - it gets projected onto the segmented image</li>
+<li>there is a projection removel mask in place - which isint yet working for the simulation</li>
+</ul>
+<hr />
+<h4 id="gui-shows-disconnected">GUI shows Disconnected</h4>
+<ul>
+<li>GUI shows on every second or so bridge startup Disconnected as status</li>
+<li>if you then close the bridge <code>Ctrl+c</code> and let it properly close</li>
+<li>the next bridge execution will then perform as expected</li>
+<li>requests such as refreshing the page are registered in bridge session</li>
+</ul>
+<p>[bot_release-14] process has finished cleanly
+log file: /home/conbotics/.ros/log/ce145aae-a8f6-11f0-9293-849e56028e8b/bot_release-14*.log
+- seems to be a marker for the bridge being able to establish a connection</p>
+<hr />
+<h4 id="gazebo-not-properly-starting">Gazebo not properly starting</h4>
+<ul>
+<li>Link connector for gazebo pipeline does not always start</li>
+<li>gzweb cant be started - physics cant be unpaused</li>
+</ul>
+<h3 id="active-warningserrors">Active Warnings/Errors</h3>
+<h4 id="gazebo-related">Gazebo related:</h4>
+<p>libGL error: failed to create dri screen
+libGL error: failed to load driver: nouveau</p>
+<p>[ERROR] [/gazebo:116]: No p gain specified for pid.  Namespace: /sprayarm/gazebo_ros_control/pid_gains/m1_joint
+  - all throughout joints m1 to m5</p>
+<p>[ERROR] [/gazebo:116]: No p gain specified for pid.  Namespace: /spraybot/base/gazebo_ros_control/pid_gains/spraybot/base/drive_wheel_left_joint
+  -for both left and right wheel joint</p>
+<hr />
+<h4 id="others">Others:</h4>
+<p>[INFO] [/spraybot/navigation/weighted_pid:394]: Getting odometry callbacks and found error.</p>
+<p>[INFO] [/spraybot/navigation/long_base_motion_server:407]: Getting odometry callbacks and found error.</p>
+<p>[WARN] (2025-09-26 13:07:36.470) SensorData.cpp:762::uncompressDataConst() Requested laser scan data, but the sensor data (42) doesn't have laser scan.</p>
+<hr />
+<h2 id="to-do">TO-DO:</h2>
+<h3 id="focus">Focus:</h3>
+<p>I will conclude with the issues that are the most pressing and that still persist:</p>
+<h4 id="odometry">Odometry</h4>
+<p>Wheel odometry for translatory x and y values slowly converges (either up or down)
+odometry output of ICP loc. gets too much focus/importance as fusion preferrs ICP values
+  - covariances?</p>
+<hr />
+<h3 id="tasks">Tasks:</h3>
+<ul>
+<li>include gzweb in startup node of gazebo (gazebo needs to be launched beforehand)</li>
+<li>further analyze odometry topics and document</li>
+<li>fix model hosting for gzweb (gazebo models are cloned into gazebo_models)</li>
+<li>create a new world including obstacles and feasible wall changes</li>
+<li>GPU ray sensor - <code>gpu_ray</code>- gpu based ray casting/sensoring</li>
+</ul>
+<hr />
+<h3 id="know-how">Know-How:</h3>
+<h3 id="how-to-convert-modular-urdf-ie-multiple-xacros-into-sdf">How to convert modular URDF (I.e. multiple xacros) into .SDF</h3>
+<ul>
+<li>.sdf folder structure (preferred type for gzweb)</li>
+<li>
+<p>GAZEBO_MODEL_PATH/cb_base/</p>
+<ul>
+<li>meshes</li>
+<li>materials</li>
+<li>model.config</li>
+<li>cb_base.sdf</li>
+</ul>
+</li>
+<li>
+<p>convert xacro -&gt; urdf -&gt; sdf (model paths in sdf should be relative to <em>GAZEBO_MODEL_PATH</em>)</p>
+</li>
+</ul>
+<pre><code class="language-bash">xacro cb_base.xacro use_link_attacher:=false &gt; cb_base.urdf
+
+gz sdf -p cb_base.urdf &gt; cb_base.sdf
+</code></pre>
+<ul>
+<li>set: </li>
+</ul>
+<pre><code class="language-bash">export GAZEBO_MODEL_PATH=~/catkin_ws/src/cb_base/cb_base_description/models
+</code></pre>
+<ul>
+<li>python not set inside Container so use python3 as default:</li>
+</ul>
+<pre><code class="language-bash">sudo ln -s /usr/bin/python3 /usr/bin/python
+</code></pre>
+<ul>
+<li>navigate to gzweb - use: </li>
+</ul>
+<pre><code class="language-bash">npm run deploy --- -m
+</code></pre>
+<p><img alt="gzweb_sdf_representation" src="../images/13.png" title="gzweb" /></p>
+<hr />
+<h4 id="gzweb-set-up">GZWEB Set-Up</h4>
+<p>(TO-DO: needs to be included in dockerfile) - DONE</p>
+<ul>
+<li><code>GAZEBO_MODEL_PATH</code> needs to be set prior to using the deploy command</li>
+<li>all subsequent builds dont need the <code>-m</code>flag - it grabs all the models both locally and from the remote model database.</li>
+<li><strong>GZWEB</strong> needs the "unique" models I.e. the ones that werent sourced/build from gazebo assets in a specified location to host them. (Sim link should be enough)</li>
+<li>Affected are the .STL files in the meshes directory</li>
+<li><code>&lt;mesh filename&gt;</code>inside <code>cb_base/cb_base_description/urdf/modules</code> for both <code>body.xacro</code> and <code>caster_wheel.xacro</code> need to be adapted</li>
+</ul>
+<pre><code class="language-bash">sudo apt install libjansson-dev imagemagick
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+
+source ~/.bashrc
+
+nvm install 8
+  (use 10 - 8 didnt work for me...)
+
+git clone https://github.com/osrf/gzweb &amp;&amp; cd ~/gzweb
+
+git checkout gzweb_1.4.1
+
+source /usr/share/gazebo/setup.sh
+
+npm run deploy --- -m
+</code></pre>
+<hr />
+<h4 id="gzweb-usage">GZWEB Usage</h4>
+<pre><code class="language-bash">cd ~/gzweb
+
+npm start -p 8081
+  (idk why but port 8080 is not open for use)
+</code></pre>
+<p>hosted site:
+http://localhost:8081/</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

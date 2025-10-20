@@ -1,0 +1,589 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>cb_sprayarm packages overview - MalerRoboter Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.84d31ad4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cb_sprayarm-packages-overview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="MalerRoboter Docs" class="md-header__button md-logo" aria-label="MalerRoboter Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MalerRoboter Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              cb_sprayarm packages overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="MalerRoboter Docs" class="md-nav__button md-logo" aria-label="MalerRoboter Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    MalerRoboter Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../support/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#software-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Software Architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-descriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package Descriptions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dependencies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running the System
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#low-level-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Low-level architecture
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="cb_sprayarm-packages-overview">cb_sprayarm packages overview</h1>
+<p>This workspace contains packages for controlling and simulating the spray arm robot. Below is a brief description of each package/folder and important notes for running the system.</p>
+<hr />
+<h2 id="software-architecture">Software Architecture</h2>
+<pre><code class="language-mermaid">graph BT
+    subgraph Low Level
+        CAN[cb_canopen_motor_node]
+    end
+    subgraph ROS Control
+        HW[cb_hardware_interface]
+        CONTROL[cb_sprayarm_control]
+    end
+    subgraph MoveIt
+        KIN[cb_kinematics]
+        KINP[cb_kinematics_plugin]
+        MOVEITP[cb_moveit_plugins]
+    end
+    subgraph Planning &amp; Execution
+        MI[cb_motion_interface]
+        CEIL[cb_ceiling_spray]
+    end
+    subgraph Config
+        MOVEITCFG[cb_sprayarm_moveit_config]
+        TIMINGS[cb_sprayarm_timings]
+    end
+    subgraph Application
+        PLANNING[cb_sprayarm_planning]
+    end
+    subgraph Launch/Simulation
+        GAZEBO[cb_sprayarm_gazebo]
+        SETUP[cb_sprayarm_setup]
+    end
+
+    CAN --&gt; HW
+    HW --&gt; CONTROL 
+    CONTROL --&gt; KINP
+    KIN --&gt; KINP
+    KINP --&gt; MI
+    MI --&gt; MOVEITP
+    MOVEITP --&gt; MOVEITCFG
+    MI --&gt; TIMINGS
+    KINP --&gt; MOVEITCFG
+
+    MOVEITP --&gt; PLANNING
+    MOVEITP --&gt; CEIL
+
+    MOVEITCFG --&gt; SETUP
+    SETUP --&gt; GAZEBO
+</code></pre>
+<h2 id="package-descriptions">Package Descriptions</h2>
+<ul>
+<li>
+<p><strong>cb_canopen_motor_node</strong><br />
+  Contains nodes and code for interfacing with motors via the CANopen protocol. Used for low-level motor control and communication. Adaption of canopen_motor_node from <a href="https://github.com/ros-industrial/ros_canopen">ros_canopen</a></p>
+</li>
+<li>
+<p><strong>cb_ceiling_spray</strong><br />
+  Implements the main logic for the ceiling spray application, including the core node that manages spraying actions.</p>
+</li>
+<li>
+<p><strong>cb_hardware_interface</strong><br />
+  Provides hardware interface classes and nodes for integrating the spray arm hardware with ROS control and MoveIt. It uses configuration files (such as the joint limits) from cb_config.</p>
+</li>
+<li>
+<p><strong>cb_kinematics</strong><br />
+  Contains custom inverse and forward kinematics for the spray arm, used for motion planning and control. It does not directly interface with MoveIt or ROS but the inverse kinematics is used through the cb_kinematics_plugin.</p>
+</li>
+<li>
+<p><strong>cb_kinematics_plugin</strong><br />
+  Implements a MoveIt kinematics plugin for the spray arm, allowing custom kinematics to be used in MoveIt motion planning.</p>
+</li>
+<li>
+<p><strong>cb_motion_interface</strong><br />
+  Provides high-level motion planning and execution for the spray arm, integrating with MoveIt! and the rest of the ROS system. Specifically, it:</p>
+</li>
+<li>Plans and executes application specific arm motions (normal, forward kinematics and spray lines).</li>
+<li>Capable of selecting an appropriate planner and retrying if a planner fails.</li>
+<li>Dynamically updates planning parameters (timings, angles) via dynamic reconfigure</li>
+<li>Manages the MoveIt! planning scene with collision objects and workspace constraints for safe planning. Adapts the planning scene based on the planning request or based on additional rostopics.</li>
+<li>Synchronizes nozzle (spray) commands with arm trajectories by calculating the timings (planSprayTrajectory) to trigger on/off the valve based on the planned trajectory. It does so by using the planned instead of the real trajectory. This has to be changed.</li>
+<li>Publishes planned trajectories for visualization in RViz</li>
+<li>Offers services and interfaces for moving to home position, planning spray lines, and more.</li>
+</ul>
+<p>While planning motion trajectories (without spray application) is done using MoveIt! and OMPL, planning a spray line is done by <code>cb_trajectory_planner.cpp</code> which is responsible for:
+  - generating smooth, feasible joint trajectories, taking into account safety and limits.
+  - handling acceleration/deceleration and nozzle synchronization.
+  - providing utility functions for trajectory processing.</p>
+<ul>
+<li><strong>cb_moveit_plugins</strong><br />
+  Contains custom MoveIt! plugins/capabilities (e.g., planners, controllers, or sensors) tailored for the spray arm. These include:</li>
+<li>Triggering the spray valve capability.</li>
+<li>Control the robot arm with a jog (manually).</li>
+<li>Simple: Moves (both planning and execution) the robot arm.</li>
+<li>
+<p>Velocity: Moves (both planning and execution) the robot arm to the home position, based on velocity control. (Not used)</p>
+</li>
+<li>
+<p><strong>cb_sprayarm_control</strong>
+  Implements and configures controllers to run the sprayarm (see Ros Control).
+  Custom controllers we implement: PLC sprayarm Controllers for handling the emergency state.  </p>
+</li>
+<li>
+<p><strong>cb_sprayarm_gazebo</strong><br />
+  Simulation package for running the sprayarm in Gazebo, loading the robot model and simulation plugins.</p>
+</li>
+<li>
+<p><strong>cb_sprayarm_moveit_config</strong><br />
+  MoveIt configuration package for the spray arm, including move group and MoveIt! setup files.</p>
+</li>
+<li>
+<p><strong>cb_sprayarm_planning</strong><br />
+  Implements planning algorithms and nodes specific to the spray arm’s tasks (e.g. path planning for spraying). 
+  When a planning request comes in (for movement, forward kinematics, or spray), the plan manager computes a hash key based on the request parameters (eg start and goal states). It checks if a plan with that key already exists in a cache (map). If yes, it retrieves it and returns the cached plan (no need to plan again). Otherwise computes a new plan, and stores it for future use. Using the hash value you can manually retrieve and then visualize a previous plan, by using either of the following services, depending if it's a normal, a forward kinematic, or a spray movement:</p>
+</li>
+<li>from_map_movement_server_</li>
+<li>from_map_fk_server_</li>
+<li>from_map_spray_server_</li>
+</ul>
+<p>You can force plan, instead of using a previous hashed plan, by setting the ROS parameter <code>/config/sprayarm/settings/force_plan</code> to <code>true</code>. The relevant configuration for it, can be found in <code>cb_config/process_configs/process.yaml</code>.</p>
+<p>The three types of motions implemented so far are:
+  - Normal movements (OMPL Planner): Standard motion plans generated by MoveIt using the OMPL library, for moving the arm from one pose to another, avoiding obstacles and following constraints.
+  - Forward kinematics movement: Moves the arm by directly specifying joint values (planning in the joint - not cartesian space). It computes the resulting end-effector pose given the joint values. Useful for precise joint control. If the <code>specify_start</code>  variable, is set to true, then you have to specify the start position, otherwise it uses the current one.
+  - Sprayline movements: Motion planning for following a spray line or pattern. It consists of a list of pairs (a, b), where a is the trigger on position and b the trigger off position for the spray valve.</p>
+<p>Another important configuration that this package uses is the <code>cb_config/arm_configs/arm_*/timings.yaml</code>. The spray valve is triggered based on time (rather than coordinates). In this configuration file, you may change the start/stop valve timings for each side (left/right), for each movement (up/down), as well as the angle of the valve (may be different than 90 degrees due to a hardware offset) and the servo (which won't be necessary from arm06 onwards).</p>
+<ul>
+<li><strong>cb_sprayarm_setup</strong><br />
+  Contains launch files and setup scripts for bringing up the entire spray arm system, both in simulation and on real hardware. </li>
+<li>
+<p><code>cb_sprayarm.launch</code> is the main launch file.</p>
+</li>
+<li>
+<p><strong>cb_sprayarm_timings</strong><br />
+  Provides timing calculations and utilities, to make calibrating the timings easier. The UI calibration feature also uses this.</p>
+</li>
+</ul>
+<hr />
+<h2 id="dependencies">Dependencies</h2>
+<p>The robot urdf model and srdf description is not part of the cb_sprayarm repository anymore but is now located inside <strong>cb_sprayarm_description</strong>. 
+All dependencies:
+- <strong>cb_sprayarm_description</strong>: Urdf and srdf files for the robot</p>
+<ul>
+<li>
+<p><strong>cb_msgs</strong>: Custom ros msg types</p>
+</li>
+<li>
+<p><strong>cb_config</strong>: Configuration files for specific hardware. One Arm and one Base has to be selected by setting the environment variables <code>ARM_NUMBER=04</code> and <code>BASE_NUMBER=04</code> (or different numbers)</p>
+</li>
+<li>
+<p><strong>cb_utils</strong>: independent functions like macros for urdf or colors for printouts</p>
+</li>
+</ul>
+<hr />
+<h2 id="running-the-system">Running the System</h2>
+<p>The arm can be loaded without further functionality from the <code>cb_sprayarm_setup</code> repository:</p>
+<ul>
+<li>
+<p><strong>Simulation:</strong><br />
+    To start the system in an rviz simulation:</p>
+<p><code>roslaunch cb_sprayarm_setup cb_sprayarm_fake_rviz.launch</code></p>
+<p>Make sure to set required ROS parameters (see launch file documentation or add missing params as needed).</p>
+</li>
+<li>
+<p><strong>Real Hardware:</strong>  </p>
+<p><code>roslaunch cb_sprayarm_setup cb_sprayarm.launch</code></p>
+<p>Ensure all hardware interfaces are connected and configured.</p>
+</li>
+<li>
+<p><strong>Gazebo:</strong>  </p>
+</li>
+</ul>
+<p>Use <code>cb_sprayarm_gazebo</code> for running the robot in simulation with physics.</p>
+<p>If the arm you want to run a full simulation or start the real arm you need more repositories like <strong>cb_core</strong>, <strong>cb_bringup</strong> and more.</p>
+<ul>
+<li>
+<p><strong>Testing simulation in rviz</strong>: </p>
+<p><code>roslaunch cb_bringup start_sprayarm_sim.launch</code></p>
+</li>
+<li>
+<p><strong>Gazebo simulation:</strong>
+    <code>roslaunch cb_bringup start_sprayarm_gazebo.launch</code></p>
+</li>
+<li>
+<p>**Standalone real arm on test stand: **</p>
+</li>
+</ul>
+<p><code>roslaunch cb_bringup start_sprayarm_real_standalone.launch</code></p>
+<ul>
+<li>**Real Arm on Robot: **</li>
+</ul>
+<p><code>roslaunch cb_bringup start_sprayarm_real.launch</code></p>
+<ul>
+<li>**Start full robot: **</li>
+</ul>
+<p><code>roslaunch cb_bringup start_all_real.launch</code></p>
+<p>Typically on the robot there are already some nodes running. In this case you can use the UI and initialization button. This will launch the whole robot using catmux scripting.</p>
+<h2 id="low-level-architecture">Low-level architecture</h2>
+<p>The robotic arm v6 has 5 motors:</p>
+<p><img alt="Sprayarm motors" src="../sprayarm.drawio.png" /></p>
+<p>The Arm control box contains a carrier PCB which connects all other PCBs it also provides power and data connection to the base.
+The following PCBs are connected to the carrier board:
+- 5 Motorcontroller PCBs in row. Starting with motor 1 (M1) as the lowest board.
+    - They are attached to with sandwich pcb directly to the carrier board.
+- A custom PCB for
+    - M1-M3 brake control (transistors that set brake signal from 5v to 24v)
+    - ESP32 with USB connection used for
+        - Spray nozzle control
+        - LED light rgb control.
+    - The custom pcb manual cable connections for brake, data, and power connection</p>
+<p>There are two 24V power cables and one 48V. They are used for:
+1) 24V: Brakes
+2) 24V: Logic
+1) 48V: Motors</p>
+<p>If the emergency controller is triggered, this disconnects the PCBs of the motors from the brakes and motors power cables, but leaves the logic power cable ON.</p>
+<p>For data communication, the control box is connected via can and USB3. Can is connected to the 5 Motorcontrollers, USB3 is connected to a USB hub which divides the signal to:
+    -  Realsense camera front
+    -  Realsense camera back
+    - The ESP32 on the custom PCB for LED and Nozzle control</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

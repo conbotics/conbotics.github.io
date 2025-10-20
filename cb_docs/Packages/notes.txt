@@ -1,0 +1,56 @@
+## Step 1: Remove wait time for network
+Change directory to /etc/netplan
+Open containing file and replace with the following:
+
+# This is the network config written by 'subiquity'
+network:
+  ethernets:
+    enp2s0:
+      dhcp4: true
+      optional: true
+      addresses:
+        - 192.168.0.105/24
+    enp3s0:
+      dhcp4: true
+      optional: true
+  version: 2
+
+
+## Step 2: Use setup script
+Download the cb:docs repository
+Change directory to the cb_docs folder then run following commands:
+  cd Packages
+  chmod +x setup_robot.sh
+  ./setup_robot.sh
+
+Follow instructions to build EMUC_B202
+
+## Step 3: Set up automated launch file
+
+If not a fresh OS, do this first:
+  sudo systemctl disable startup_node.service
+  rosrun robot_upstart uninstall startup_node
+
+If fresh OS, start here:
+  rosrun robot_upstart install gui_bridge/launch/start_bridge.launch --job startup_node --master http://192.168.0.105:11311 --interface enp2s0
+  sudo systemctl daemon-reload && sudo systemctl start startup_node
+  sudo systemctl edit --full startup_node.service
+
+This is what this file should look like:
+
+# THIS IS A GENERATED FILE, NOT RECOMMENDED TO EDIT.
+
+[Unit]
+Description="bringup startup_node"
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/sbin/startup_node-start
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+
+

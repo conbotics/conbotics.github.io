@@ -1,0 +1,501 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>cb_base documentation - MalerRoboter Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.84d31ad4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cb_base-documentation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="MalerRoboter Docs" class="md-header__button md-logo" aria-label="MalerRoboter Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MalerRoboter Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              cb_base documentation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="MalerRoboter Docs" class="md-nav__button md-logo" aria-label="MalerRoboter Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    MalerRoboter Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../support/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#software" class="md-nav__link">
+    <span class="md-ellipsis">
+      Software
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-power-up-the-robot" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Power up the robot
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-connect-to-the-robot-and-its-running-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Connect to the robot and its running sessions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-initialize-the-robot" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Initialize the robot
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Initialize the robot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#base-launch-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Base launch file
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-launch-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core launch file
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vision-and-arm-launch-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vision and arm launch files
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hardware
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="cb_base-documentation">cb_base documentation</h1>
+<h2 id="software">Software</h2>
+<p>To connect to the robot, and either control the base or run state machines, follow these guidelines:</p>
+<h3 id="1-power-up-the-robot">1. Power up the robot</h3>
+<ol>
+<li>Follow <a href="../../cb_onboarding/onboarding_software/#connecting-to-the-robot">these guidelines</a> to power up and connect to the robot</li>
+</ol>
+<p>By powering up the robot, a catmux session is automatically launched, that sets the correct ROS_IP and ROS_MASTER_URI variables, and opens two tabs/sessions, through the <code>ce_and_startup_node.bash</code>:
+- <code>startup_node</code>: Launches the <code>startup_node.launch</code> which includes all the necessary but also bare minimum processes needed to run, to power up and have feedback of the state of the robot. It also runs a check task that these processes have started. In particular, it:
+    - sets the required parameters,
+    - launches the necessary ROS nodes for the GUI,
+    - launches the driver of the base,
+    - launches the velocity_smoother: takes as input the cmd_vel and sends to the base a more smooth velocity pattern,
+    - launches the bot_release,
+    - launches the PLC controller for the base, and
+    - launches the servo and led controllers.
+- <code>cb_logger</code>: Contains relevant logs of the robot.</p>
+<h3 id="2-connect-to-the-robot-and-its-running-sessions">2. Connect to the robot and its running sessions</h3>
+<p>To attach to the sessions currently running on the robot, run:</p>
+<pre><code>cattach
+</code></pre>
+<p>Notes:
+- Even if the robot is not yet initialized, but just powered up, you can still manually drive it (the base driver, and hence the <code>cmd_vel</code> is already working).
+- LiDARS are not working at this state.</p>
+<h3 id="3-initialize-the-robot">3. Initialize the robot</h3>
+<p>On the GUI, press the <code>Initialize</code> button. This opens up 4 more sessions, through the <code>catmux_session_manager.bash</code>:
+- base: Corresponds to <code>start_base_real.launch</code>
+- core: Corresponds to <code>start_core_catmux.launch</code>
+- arm: Corresponds to <code>start_arm_catmux.launch</code>
+- vision: Corresponds to <code>start_vision_pc.launch</code></p>
+<p>Only run <code>catmux_session_manager.bash</code> if you're not using the GUI.</p>
+<h4 id="base-launch-file">Base launch file</h4>
+<p>It launches:
+- the description of the robot
+- the controllers
+- the perception launch file: for the sensors to build the 2d map
+    - launches the lidars (each lidar has its own node. scan1 for the back, scan2 for the front lidar)
+    - merges the readings of the two lidar on one (based on <code>laser_filtering.yaml</code> parameters)
+    - launches IMU
+    - launches UKF (fuses IMU, wheel and ICP odometry)
+    - launches corner and line extraction processes
+    - launches gmapping (will turn to rtabmap)
+    - launches proximity launcher that checks for adjacent to the robot objects. In rviz this is depicted as green lines turned red if anything goes beyond that limit, or if the bucket is located in fron of the bucket.
+- move base flex for navigation. <code>move_base.yaml</code> includes all the relevant parameters for planners and controllers. It also launches the following servers:
+    - <code>corner_selection_server</code>: It checks for corners based on which side of the robot, the wall is (right/left)
+    - <code>corner_alignment_server</code>: It receives the id of the corner to align and calculates the end position to send to move base.
+    - <code>wall_change_server</code>: to change wall
+    - <code>row_change_server</code>: to change the painting row
+    - <code>rotation_server</code>: to change rotation
+    - <code>weighted_pid</code>: PID for wall alignment
+    - <code>long_base_motion_server</code>: For the robot to move as straight as possible when aligning to the wall
+    - <code>straight_line</code>: to move straight only
+- sets bot_release to true to release the brakes (legacy code. Now, everytime we send a velocity command, the brakes are released)</p>
+<ul>
+<li>Rviz<ul>
+<li>Blue corners define outer corners. Green ones define inside corners.</li>
+<li>Around the robot, green rectangle defines the robot footprint. Red is the emergency area. Yellow the warning area (where the robot operates with half the speed) </li>
+<li>Blue rectangle close to the robot, defines the area where the bucket should NOT be located to not interfere with lidar measurements.</li>
+</ul>
+</li>
+</ul>
+<h4 id="core-launch-file">Core launch file</h4>
+<p>Core consists of the state machines that execute the robot's movements for painting. It is a high-level decision-making package for communication between the robot back-end and the GUI.</p>
+<p>It launches the following state machine servers:
+- <code>start_sm_as</code>: A coordinator state machine that receives a StartSM action goal, it builds the environment with the <code>object_server</code>, starts a state machine and monitors its execution.
+- <code>move_arm_as</code>: It receives MoveArm action goals, plans a movement and optionally executes.
+- <code>flexbe_as</code>: a state machine for flexbe
+- <code>behavior_onboard.launch</code>
+- <code>object_server</code> which publishes information about obstacles, corners, ceiling lines and the required parameters
+- <code>builder</code> node that uses the info from the <code>object_server</code> to build the environment and publishes the process list (sequence of actions) for use by other nodes. It also visualizes this information, and runs a logger.</p>
+<p>By default, when powering up the robot (<code>startup_node.launch</code>), the <code>Full WaltR Control</code> state machine is loaded. This, is the main state machine which:
+- gives <code>corners</code>, <code>obstacles</code> and <code>ceiling height</code> information to the <code>cb_object_server</code> 
+- saves the room structure as <code>room_data</code>.
+- <code>room_data</code> is then fed to <code>cb_builder</code> which starts the <code>process</code> by creating 
+- a <code>process list</code>: a list of tasks/actions to be done. These actions are basically state machines.</p>
+<p>As an example, it could give the tasks of moving the base few cm, move the arm from position 1 to 3, do the paint motion etc. </p>
+<p>The process list is then fed to the <code>control</code> state which commands the base, the arm, etc, accordingly.</p>
+<p><code>roslaunch flexbe_app flexbe_full.launch</code> launches the GUI app locally, where you can select different state machines from.</p>
+<h4 id="vision-and-arm-launch-files">Vision and arm launch files</h4>
+<p>For the vision and arm launch files, check the following documentation:
+- <a href="../../cb_vision_docs/readme/">Vision</a>
+- Arm (TODO)</p>
+<h2 id="hardware">Hardware</h2>
+<p>The robot communicates with the PC using the CAN protocol. The two buses with which it communicates, are:
+- CAN0: for the base
+- CAN1: for the arm</p>
+<p>Thus, for low-level troubleshooting, you may use <code>can-utils</code>, eg:
+- candump can0
+- cansend can0 123#DEADBEEF
+- ...</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

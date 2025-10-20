@@ -1,0 +1,598 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Field Engineer - MalerRoboter Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.84d31ad4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#field-engineer" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="MalerRoboter Docs" class="md-header__button md-logo" aria-label="MalerRoboter Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MalerRoboter Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Field Engineer
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="MalerRoboter Docs" class="md-nav__button md-logo" aria-label="MalerRoboter Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    MalerRoboter Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#work-procedure-deliverables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Work Procedure - Deliverables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Specifications
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Software Architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hardware
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#electronics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Electronics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#painting-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Painting instructions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#robot-cleaning-instruction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Robot cleaning instruction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#calibrate-odometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Calibrate odometry
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="field-engineer">Field Engineer</h1>
+<h2 id="work-procedure-deliverables">Work Procedure - Deliverables</h2>
+<ol>
+<li>Timeplan: Plan a timeline for the time being on the job site. Set some goals that the robot should achieve until the end of the time there (eg. be able to paint room 4 and 5 and the car park)</li>
+<li>Case studies: Assess site and identify all the possible <strong>case studies</strong>.  Test and collect data (rosbags) for these.</li>
+<li>Troubleshooting: Note down all the issues faced, and the procedures to solve each. By the end of the project, there should be a streamline process with what guidelines to follow and in which order, depending on the issue faced.</li>
+<li>Feedback data: Give direct feedback to the team for every issue, and note them down to track their state/progress. Ideally use KANBAN to track the progress of the issues (error logging), and capture rosbags for each one of them. Transfer the issues into Github issues.</li>
+<li>Daily activity log: Fill a daily activity log with all the paints that took place every day, together with the issues.</li>
+<li>Performance indicators: Extract important information regarding the performance of the robot (eg time/meter, how often we need to clean the lidar, maintain the robot etc). </li>
+<li>Usage guidelines: Guide customer for robot operation, next steps, recording and training.</li>
+<li>Calibrate timings and odometry.</li>
+</ol>
+<h2 id="specifications">Specifications</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Specifications</strong></th>
+<th>Value</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Packaging dimensions</strong></td>
+<td>745 x 1225 x 1945 mm</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Mobile platform dimensions</strong></td>
+<td>715 x 1225 x 806 mm</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Maximum height</strong></td>
+<td>3.2</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Maximum height</strong></td>
+<td>3.2</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Supply voltage</strong></td>
+<td>48V DC (robot)/240V AC (airless)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Optimum nozzle pressure</strong></td>
+<td>16 (MPa) up to 22</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Coverage</strong></td>
+<td>160 - 200 (sqm/h)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Charging time</strong></td>
+<td>5h</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Operating time</strong></td>
+<td>6h</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Back wheel diameter</strong></td>
+<td>240mm</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p><a href="../troubleshooting/">Troubleshooting</a></p>
+<h2 id="software-architecture">Software Architecture</h2>
+<p><img alt="Software Architecture" src="../spraybot_architecture.jpg" /></p>
+<h2 id="network">Network</h2>
+<p><img alt="Network" src="../../Network/network_diagram.png" /></p>
+<h2 id="hardware">Hardware</h2>
+<p><img alt="Hardware" src="../Conbotics_hardware.drawio.png" />
+<a href="https://drive.google.com/file/d/10Rbk_In8hquqSPfIbdda4P5zjkFZQTfL/view?usp=sharing">edit</a></p>
+<h2 id="electronics">Electronics</h2>
+<p><a href="https://conboticsgmbh-my.sharepoint.com/personal/david_franke_conbotics_com/_layouts/15/onedrive.aspx?ga=1&amp;id=%2Fpersonal%2Fdavid%5Ffranke%5Fconbotics%5Fcom%2FDocuments%2FProduktentwicklung%2F1%5FProdukt%2F8%5FElektronik%2FEplan%20MalerRoboter%2020250204%2Epdf&amp;parent=%2Fpersonal%2Fdavid%5Ffranke%5Fconbotics%5Fcom%2FDocuments%2FProduktentwicklung%2F1%5FProdukt%2F8%5FElektronik">Eplan</a></p>
+<h2 id="painting-instructions">Painting instructions</h2>
+<p><a href="../../spray_documentation/paint_documentation/">Painting instructions</a></p>
+<h2 id="robot-cleaning-instruction">Robot cleaning instruction</h2>
+<p><a href="../../robot_cleaning/Putzanleitung/">Putzanleitung</a></p>
+<h2 id="notes">Notes</h2>
+<h3 id="calibrate-odometry">Calibrate odometry</h3>
+<pre><code>- Have a mark for the beginning position of the robot. Drive it forward few meters. Then backward. Observe how right or left the robot arrived compared to the initial mark. If it landed on the right side of it, that means the right wheel radious has to be smaller ot the left bigger. If it landed on the left side of it, that means the left wheel radious has to be smaller ot the right bigger.
+- Change the values accordingly, in the cb_config/base_configs/base_MR0x/general.yaml for left_wheel_radius and right_wheel_radius.
+- Run `rosparam load .../general.yaml`
+- Run 
+```
+rostopic pub -1 /spraybot/base/set_wheel_radii std_msgs/Float32MultiArray "layout:
+</code></pre>
+<p>dim:
+  - label: ''
+    size: 0
+    stride: 0
+  data_offset: 0
+data: [<left_wheel_radius>, <right_wheel_radius>]"</p>
+<pre><code>    - Then command the robot to go straight for 2m:
+    ```
+    rostopic pub -1 /spraybot/navigation/straight_line/goal cb_msgs/LineMotionActionGoal &quot;header:
+  seq: 0
+  stamp:
+    secs: 0
+    nsecs: 0
+  frame_id: ''
+goal_id:
+  stamp:
+    secs: 0
+    nsecs: 0
+  id: ''
+goal:
+  step_size: 2.0
+  velocity: 0.2&quot; 
+  ```
+  - Measure the distance between the initial mark, and where the robot reached.
+  - If it is less than 2m, then decrease the 
+
+If we move more than 2m, increase the values. If less, decrease them.
+If we are turning on the left, decrease the left wheel radius
+
+
+### Move 6th axis:
+
+</code></pre>
+<p>rostopic pub -1 /sprayarm/set_mounting_point_out_action_server/goal</p>
+<pre><code>False: To move the arm in / True: To move the arm out.
+
+or:
+</code></pre>
+<p>cansend can0 009#01: 6th axis in
+cansend can0 009#02: 6th axis out</p>
+<pre><code>
+### To make USB syncable
+</code></pre>
+<p>lsblk -f #to find the USB UUID
+./cb_tools/scripts/register_syncable_usb.sh #to make the USB syncable
+journalctl -u usb-sync-XXXX-XXXX.service -f #to verify, after you replug the USB</p>
+<pre><code>
+### Record rosbag
+</code></pre>
+<p>rosparam set /config/general/user/record_rosbag true
+python3 src/cb_bringup/scripts/record_rosbag.py</p>
+<pre><code>
+### Copy to usb
+</code></pre>
+<p>lsblk: Identify usb
+sudo mkdir /mnt/usb
+sudo mount -o uid=1000,gid=1000 /dev/sdb1 /mnt/usb
+sudo rsync -ah --info=progress2 --remove-source-files ~/rosbags/2025-07-31*.bag /mnt/usb/ 
+(maybe add --no-owner --no-group)
+sudo umount /mnt/usb</p>
+<pre><code>
+### See rviz
+On your laptop:
+</code></pre>
+<p>export ROS_IP=10.11.12.10 # or whatever the IP of the robot is
+export ROS_MASTER_URI=http://10.11.12.10:11311
+rviz
+```</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

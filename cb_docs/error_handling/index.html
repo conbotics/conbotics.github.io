@@ -1,0 +1,592 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Error handling on the robot with user interaction - MalerRoboter Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#error-handling-on-the-robot-with-user-interaction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="MalerRoboter Docs" class="md-header__button md-logo" aria-label="MalerRoboter Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MalerRoboter Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Error handling on the robot with user interaction
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="MalerRoboter Docs" class="md-nav__button md-logo" aria-label="MalerRoboter Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    MalerRoboter Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../support/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#json-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSON schema
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="JSON schema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tooling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tooling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema-creating-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schema creating API
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="error-handling-on-the-robot-with-user-interaction">Error handling on the robot with user interaction</h1>
+<h2 id="json-schema">JSON schema</h2>
+<p>For passing information between the ROS side and the frontend, we need a way of reliably
+structure data that is coming back from the frontend. Also, the frontend needs to know
+what the backend wants.
+The requirements for these needs are:</p>
+<ul>
+<li>data to display to the user:</li>
+<li>information texts</li>
+<li>type of interaction (e.g. confirm, error, warning)</li>
+<li>data sent back to the ROS</li>
+<li>sending inputs (e.g. numerical values or strings) for error handling or correction</li>
+<li>deciding between different actions (e.g. continue, cancel, confirm)</li>
+</ul>
+<p><code>JSON schemas</code> is initially a way to define how data that a server receives should look like.
+So, natively, the second group of requirements is covered by the schemas already.
+Schemas can be extended to contain information that is needed for displaying the intent
+to the user without affecting the shape of the expected response.</p>
+<p>If you want to read a bit into JSON schemas, see the <a href="https://json-schema.org/learn">official documentation</a>:
+In about 20 minutes, one should have a rough feeling about how they work.
+If you are an interactive learner, check out <a href="https://tour.json-schema.org/">this tour of its syntax</a>.</p>
+<p>As JSON schemas are used widely e.g. to define JSON-based APIs, there are lots of tools,
+that one can work with.
+The most central usage of schemas is to validate a response to its schema. For the languages
+that are used at <code>ConBotics</code> (Python, C++, TypeScript) there are packages that can perform
+validation.</p>
+<h3 id="example">Example</h3>
+<p>In our context, this is how some simple schemas might look like:</p>
+<pre><code class="language-json">{
+  &quot;$schema&quot;: &quot;https://json-schema.org/draft/2020-12/schema&quot;,
+  &quot;$id&quot;: &quot;conbotics/confirm.schema.json&quot;,
+  &quot;description&quot;: &quot;&lt;Here we can put information to the user, like 'The process is finished!'&gt;&quot;,
+  &quot;type&quot;: &quot;object&quot;,
+  &quot;properties&quot;: {
+    &quot;id&quot;: {
+      &quot;const&quot;: &quot;&lt;id set by the backend&gt;&quot;
+    },
+    &quot;message&quot;: {
+      &quot;enum&quot;: [&quot;confirm&quot;, &quot;abort&quot;]
+    }
+  },
+  &quot;required&quot;: [&quot;id&quot;, &quot;message&quot;]
+}
+</code></pre>
+<p>This schema would accept a response such as:</p>
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;&lt;id set by the backend&gt;&quot;,
+  &quot;message&quot;: &quot;confirm&quot;
+}
+</code></pre>
+<p>Another example, where the user has to enter some data to fix an issue:</p>
+<pre><code class="language-json">{
+  &quot;$schema&quot;: &quot;https://json-schema.org/draft/2020-12/schema&quot;,
+  &quot;$id&quot;: &quot;conbotics/manual-ceiling-height.schema.json&quot;,
+  &quot;description&quot;: &quot;The robot can't find a proper ceiling height. Enter one to resume the process!&quot;,
+  &quot;type&quot;: &quot;object&quot;,
+  &quot;properties&quot;: {
+    &quot;id&quot;: {
+      &quot;const&quot;: &quot;&lt;id set by the backend&gt;&quot;
+    },
+    &quot;ceilingHeight&quot;: {
+      &quot;type&quot;: &quot;number&quot;,
+      &quot;default&quot;: 2.7
+      &quot;minimum&quot;: 1.5,
+      &quot;maximum&quot;: 3.6,
+    },
+    &quot;action&quot;: {
+      &quot;type&quot;: &quot;string&quot;,
+      &quot;enum&quot;: [&quot;retry&quot;, &quot;abort&quot;]
+    }
+  },
+  &quot;required&quot;: [&quot;id&quot;, &quot;action&quot;, &quot;ceilingHeight&quot;]
+}
+</code></pre>
+<p>The UI can parse this information and show the user the range of possible inputs. Also,
+it can show the user which values are needed for each option to go forward with.
+<code>properties</code>, <code>const</code>, <code>type</code>, <code>default</code>, <code>enum</code>, <code>required</code>, <code>min/maximum</code> etc.
+are all <a href="https://json-schema.org/understanding-json-schema/keywords">special keywords of JSON schema</a></p>
+<h3 id="tooling">Tooling</h3>
+<p>As said earlier, there are <a href="https://json-schema.org/tools">many implementations</a> of JSON
+schema functionalities available.
+Here are some options that I thought might be worth a look into:</p>
+<ul>
+<li><a href="https://github.com/python-jsonschema/jsonschema">jsonschema</a>: Python package to validate
+  responses to schemas.</li>
+<li>Could be used by the error handler before accepting a response.</li>
+<li>An alternative would be <a href="https://github.com/marksparkza/jschon">jschon</a></li>
+<li><a href="https://github.com/vip-git/universal-json-schema">React JSON schema form</a>: A package
+  that generates UI forms from a given schema.</li>
+<li>This would have the benefit of not having to implement the logic ourselves to create
+    the bodies of error handling notifications.</li>
+<li>Another candidate for this task would be <a href="https://github.com/ui-schema/ui-schema">ui-schema</a></li>
+<li><a href="https://github.com/glideapps/quicktype">quicktype</a>: A library that generates code (classes, parsers)
+  for strongly-typed languages.</li>
+<li>This could be applied similar to ROS messages, where one defined a schema and at compile time
+    the header files are generated.</li>
+</ul>
+<h3 id="problems">Problems</h3>
+<p>We are employing JSON schema to be flexible as otherwise, one could simply define error
+codes on the frontend and backend and the frontend "knows" what input the backend needs.
+Ideally, the UI would be as "stupid" as can be to avoid having too much logic implemented there.
+So, we want to be able to send arbitrary requests to the frontend, which means that
+we need JSON schemas (or some alternative) as a way to communicate the needs in an
+organized way.
+Now, if we want to be able to construct request schemas at runtime (e.g. for combined error handling),
+we need a way to generate them from code. I don't know a good way to do that in C++.</p>
+<p>I think, for now, this could be tackled by building a small toolbox that makes it easy to
+dynamically add properties to an existing schema. More complex structures, like <code>oneOf</code>,
+<code>enum</code>, or nested objects might be harder to implement. But I think for now, our needs are
+not that complex.</p>
+<p>When it comes to using a parsed response, it depends on if we use generated header files.
+Then, one could work with properly typed member access. For that, static schemas are needed.
+For dynamically created schemas, one will have to resort to accessing the parsed response as
+a map/dictionary.</p>
+<h2 id="schema-creating-api">Schema creating API</h2>
+<p>We propose a plugin in <code>cb_utils</code> that leverages <code>rapidjson</code> to create and validate schemas.
+The plugin should offer an API that makes it simple to create a schema. The following code is
+not supposed to work out of the box, but rather illustrate the idea:</p>
+<p><code>schema_tools.h</code>:</p>
+<pre><code class="language-cpp">#include &quot;rapidjson/document.h&quot;
+#include &quot;rapidjson/writer.h&quot;
+#include &quot;rapidjson/stringbuffer.h&quot;
+
+struct BaseArgs {
+  std::string name;
+};
+
+struct IntegerArgs : BaseArgs {
+  std::optional&lt;int&gt; minimum = std::nullopt,
+  std::optional&lt;int&gt; maximum = std::nullopt,
+};
+
+class SchemaBase {
+  Value val;
+
+  public:
+    std::string name;
+    const SchemaBase() {}
+    std::string compile();
+    const &amp;Value getValue() {
+      return val;
+    }
+};
+
+class Integer : SchemaBase {
+  const Integer(IntegerArgs args) : SchemaBase() {
+    name = args.name;
+    val.SetObject();
+    Value obj(kObjectType);
+    Value type(&quot;number&quot;);
+    obj.AddMember(&quot;type&quot;, type, val.GetAllocator());
+    if (args.minimum.has_value()) {
+      Value min(args.minimum);
+      val.AddMember(&quot;minimum&quot;, min, val.GetAllocator());
+    }
+    if (args.maximum.has_value()) {
+      Value max(args.maximum);
+      val.AddMember(&quot;maximum&quot;, max, val.GetAllocator());
+    }
+    val.AddMember(args.name, obj, val.GetAllocator());
+  }
+};
+
+std::string create_schema(const vector&lt;SchemaBase&gt; properties, const std::string&amp; description) {
+  Document d;
+  d.SetObject()
+    .AddMember(&quot;$schema&quot;, &quot;https://json-schema.org/draft/2020-12/schema&quot;, d.GetAllocator())
+    .AddMember(&quot;$id&quot;, &quot;conbotics/manual-ceiling-height.schema.json&quot;), d.GetAllocator();
+    .AddMember(&quot;description&quot;, description, d.GetAllocator())
+    .AddMember(&quot;type&quot;, &quot;object&quot;, d.GetAllocator());
+
+  Value ps(kObjectType);
+  for (int i = 0; i &lt; properties.size(); ++i) {
+    ps.AddMember(properties[i].name, properties[i].getValue(), d.GetAllocator())
+  }
+
+  d.AddMember(&quot;properties&quot;, ps, d.GetAllocator());
+
+  StringBuffer buffer;
+  Writer&lt;StringBuffer&gt; write(buffer);
+  d.Accept(writer);
+  return buffer.GetString();
+}
+
+bool validate(std::string json, std::string schema) {
+  Document sd;
+  if (sd.Parse(schema).HasParseError()) {
+    return false;
+  }
+
+  SchemaDocument s(sd);
+
+  Document d;
+  if (d.Parse(json).HasParseError()) {
+    return false;
+  }
+
+  SchemaValidator validator(schema);
+  return d.Accept(validator);
+}
+</code></pre>
+<p>Applied in some cpp file:</p>
+<pre><code class="language-cpp">#include &quot;cb_utils/schema_tools.h&quot;
+
+using namespace schema_tools;
+
+int main() {
+  const std::string schema = create_schema({
+    Integer(IntegerArgs {.name = &quot;ceiling_height&quot;, .minimum = 2.2}),
+  }, &quot;The robot can't find a proper ceiling height. Enter one to resume the process!&quot;);
+  const std::string jsonString = &quot;{'ceiling_height': 4.1}&quot;;
+  const boolean success = validate(jsonString, schema);
+}
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

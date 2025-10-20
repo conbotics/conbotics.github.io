@@ -1,0 +1,801 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Software Onboarding - MalerRoboter Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.84d31ad4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#software-onboarding" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="MalerRoboter Docs" class="md-header__button md-logo" aria-label="MalerRoboter Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MalerRoboter Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Software Onboarding
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="MalerRoboter Docs" class="md-nav__button md-logo" aria-label="MalerRoboter Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    MalerRoboter Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../support/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install-ubuntu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install Ubuntu
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install System
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Install System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-auto-install" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 1 - Auto-install
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-manual-install" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 2 - Manual install
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-the-robot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working with the robot
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Working with the robot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connect-to-the-robot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connect to the robot
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Connect to the robot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-the-robot" class="md-nav__link">
+    <span class="md-ellipsis">
+      On the robot:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-your-laptop" class="md-nav__link">
+    <span class="md-ellipsis">
+      On your laptop
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-interaction-with-robot-in-the-command-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic interaction with robot in the command line
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic interaction with robot in the command line">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#additionally-for-a-painting-job" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additionally, for a painting job:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robot-folders-on-the-robots" class="md-nav__link">
+    <span class="md-ellipsis">
+      Robot Folders on the Robots
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commiting-on-the-robot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commiting on the robot
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shut-down-and-prepare-for-next-person" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shut down and prepare for next person
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment variables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git Guidelines
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clean-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clean code
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#base" class="md-nav__link">
+    <span class="md-ellipsis">
+      Base
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vision
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      UI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simulation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spraying" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spraying
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network &amp; Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error handling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robot-cleaning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Robot cleaning
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#password-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Password Management
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tools
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tutorials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tutorials
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storage
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="software-onboarding">Software Onboarding</h1>
+<h2 id="install-ubuntu">Install Ubuntu</h2>
+<p>Most of us use dual boot setup on our laptop. A quick tutorial how to set this up: <a href="../dualboot_windows_ubuntu/">Windows + Ubuntu Dualboot</a></p>
+<h2 id="install-system">Install System</h2>
+<h3 id="option-1-auto-install">Option 1 - Auto-install</h3>
+<p>To install everything, run:</p>
+<pre><code>bash install_all.sh
+</code></pre>
+<p>This will create the folder <code>~/workspace/catkin_ws</code> with all the required packages and dependencies for the system to run. If this doesn't work, then install manually with Option 2.</p>
+<h3 id="option-2-manual-install">Option 2 - Manual install</h3>
+<ol>
+<li>
+<p>Install git on your system:</p>
+<p><code>sudo apt install git</code></p>
+</li>
+<li>
+<p>Generate ssh key and add them to your github account
+https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent</p>
+</li>
+<li>
+<p>Install ros and catkin tools / robot folders
+    https://wiki.ros.org/noetic/Installation/Ubuntu</p>
+<p>https://catkin-tools.readthedocs.io/en/latest/installing.html</p>
+<p>https://github.com/fzi-forschungszentrum-informatik/robot_folders</p>
+</li>
+<li>
+<p>Clone Conbotics repositories and build</p>
+<p><code>git clone git@github.com:conbotics/cb_docker.git</code></p>
+<p>Execute the following scripts</p>
+<p><code>bash cb_docker/pull_repos.bash $catkin_ws</code></p>
+<p><code>bash cb_docker install_packages.bash</code></p>
+</li>
+<li>
+<p>Build your workspace with catkin build or makeros (if you use robot folders)</p>
+</li>
+<li>
+<p><a href="https://docs.docker.com/engine/install/ubuntu/#installation-methods">Install docker</a></p>
+</li>
+</ol>
+<h2 id="working-with-the-robot">Working with the robot</h2>
+<p>Working on the robot allows us to test our code in a real environment. </p>
+<h3 id="connect-to-the-robot">Connect to the robot</h3>
+<h4 id="on-the-robot">On the robot:</h4>
+<ol>
+<li>Turn the knob that connect the robot with the battery.</li>
+<li>Release breaks by pressing the green blinking button</li>
+<li>Press the same button fir 5sec to boot up PC and Jetson.</li>
+</ol>
+<h4 id="on-your-laptop">On your laptop</h4>
+<p>4a. Connect via the WiFi to the corresponding Wifi Network e.g. "Rob4" (Option A)
+4b. Connect via NetBird (Option B):</p>
+<pre><code>netbird up
+</code></pre>
+<ol>
+<li>Connect to PC: <code>ssh conbotics@10.11.12.10</code> , connect to Jetson <code>ssh conbotics@10.11.12.40</code> (For vs code usage consider the <a href="https://code.visualstudio.com/docs/remote/ssh"> offical  documentation</a>)</li>
+</ol>
+<h3 id="basic-interaction-with-robot-in-the-command-line">Basic interaction with robot in the command line</h3>
+<ol>
+<li>Connect to the robot's session. Run</li>
+</ol>
+<pre><code>cattach
+</code></pre>
+<p>For interfacing with the running ROS server, we use <a href="https://github.com/fmauch/catmux">catmux</a>. Upon startup, there is a catmux session running launched by the startup node. When pressing "initialize" in the  GUI, the respective windows for core, arm, base, etc. are added to the running session and closed upon "de-initialize". To view and scroll through the running session, the bash alias <code>cattach</code> (for <code>catmux attach</code>) can be used. This opens a separate catmux session that is linked to the original one. The advantage of this is that all users can have their separate session running, meaning they can scroll and navigate through the windows independently. Exiting the session can be done with <code>ctrl + b</code> <code>d</code>.</p>
+<p>If you really want to attach to the original session for whatever reason, use <code>catmux attach</code> or <code>catmux attach -t catmux</code>. Be careful as the <code>ctrl + b</code> <code>d</code> command has been remapped to killing the entire session (so that the sessions opened by <code>cattach</code> don<code>t accumulate). To detach, do</code>ctrl + b<code>and type</code>:detach` followed by enter.</p>
+<p>To scroll and have the process continue at the same time, at least <code>tmux 3.2</code> is necessary (see <a href="https://superuser.com/questions/1804770/tmux-ctrl-b-pauses-application-how-to-scroll-without-pausing">here</a>). The newest version can be installed using <a href="https://gist.github.com/nanmu42/97e7d476bbd89301fc74ed23eb0cd65a#file-update_tmux-sh">this script</a>.</p>
+<ol>
+<li>Either use the tablet, or in the cb_ui_app, run:</li>
+</ol>
+<pre><code>docker compose up
+</code></pre>
+<p>go to http://localhost:5173, and set the correct Robot IP to start working with the robot.
+3. Press <code>Initialize</code>
+4. You may now interact with the robot.</p>
+<h4 id="additionally-for-a-painting-job">Additionally, for a painting job:</h4>
+<ol>
+<li>Go to <code>Position</code></li>
+<li>Clean/Empty the water/paint</li>
+<li>Go to <code>home position</code>.</li>
+<li>Set the Wagner pressure (170 Bars).</li>
+<li>Start the process or run a test.</li>
+</ol>
+<h3 id="robot-folders-on-the-robots">Robot Folders on the Robots</h3>
+<p>The operating system of the robots launches by default the roscore, startup node and the catmux session. This process are called from the default robot folders environment <code>robot_wss/develop</code>. To add a new environmnt use <code>fzirob add_environment my_env</code> and then source it with <code>ce my_env</code>. Then you can copy the source to your environment like so: <code>cp -r ~/robot_wss/develop/catkin_ws/src ~/robot_wss/my_env/catkin_ws/src</code>. After copying <code>src</code> you can build the code with the command <code>makeros</code>, which can be called from any location in the file system, if you have sourced the environment before. Finally, you can now kill the running startup node, source again (necessary again after build), start a new startup node and catmux session with running the command <code>robce my_env</code>. </p>
+<h3 id="commiting-on-the-robot">Commiting on the robot</h3>
+<p>wip</p>
+<h3 id="shut-down-and-prepare-for-next-person">Shut down and prepare for next person</h3>
+<ol>
+<li>Set all the branches back to <code>develop</code> or change the robot folders environment back to develop</li>
+<li>Build if you have changed the branches on the robot</li>
+<li>Execute <code>runterfan</code> on the robot to shut it down</li>
+<li>Wait until the PC and the Jetson</li>
+</ol>
+<h3 id="environment-variables">Environment variables</h3>
+<p>To work on the robot, one must first define the ARM_NUMBER (03, 04, 05) and BASE_NUMBER environment variable.
+These refer to the version of the arm and base respectively.
+Each one of the real robots, have these variables hardcoded in their /home dir.</p>
+<h2 id="best-practices">Best practices</h2>
+<h3 id="git-guidelines">Git Guidelines</h3>
+<p>We use a feature-branch workflow for all of our git repos. The convestions can be fstepsound <a href="../../cb_guidelines/Git%20Guidlines/">here</a></p>
+<h3 id="project-management">Project Management</h3>
+<p>We use Github issues and the Project view for our software project management. An introduction to that can be found <a href="../../cb_guidelines/project_management/">here</a></p>
+<p>For the interdisciplinary meetings and company overview we use <a href="https://clickup.com/">Clickup</a></p>
+<h3 id="clean-code">Clean code</h3>
+<p>For better code quality please consider <a href="../../cb_guidelines/clean_code/">Clean Code</a>. We wrote down some usefull Guidelines and bes pratices for that.</p>
+<h2 id="documentation">Documentation</h2>
+<h3 id="base">Base</h3>
+<p><a href="../../cb_base_docs/base/">Base Documentation</a></p>
+<h3 id="arm">Arm</h3>
+<p><a href="../../cb_sprayarm_docs/sprayarm/">Sprayarm Docs</a></p>
+<h3 id="core">Core</h3>
+<p><a href="../../cb_core/state_machines_docs/">Core Documentation</a></p>
+<h3 id="vision">Vision</h3>
+<p><a href="https://github.com/conbotics/cb_docs/tree/master/cb_vision_docs">Vision Docs</a></p>
+<h3 id="ui">UI</h3>
+<p><a href="https://github.com/conbotics/cb_ui_app">UI Repo</a></p>
+<h3 id="simulation">Simulation</h3>
+<p><a href="../../cb_sim/simulation/">Simulation Docs</a></p>
+<h3 id="spraying">Spraying</h3>
+<p><a href="../spray_documentation/">Spray Documentation</a></p>
+<h3 id="network-structure">Network &amp; Structure</h3>
+<p><a href="../../Network/network_diagram.png">Network Diagram</a></p>
+<p><a href="../../Network/netbird/">Netbird</a> (for remote access to teh robots)</p>
+<p><a href="https://conboticsgmbh-my.sharepoint.com/personal/david_franke_conbotics_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fdavid%5Ffranke%5Fconbotics%5Fcom%2FDocuments%2FProduktentwicklung%2F1%5FProdukt%2F1%5FSteuerung%2FControlsystem%2Fspraybot%5Farchitecture%2Epdf&amp;parent=%2Fpersonal%2Fdavid%5Ffranke%5Fconbotics%5Fcom%2FDocuments%2FProduktentwicklung%2F1%5FProdukt%2F1%5FSteuerung%2FControlsystem&amp;ct=1717055686334&amp;or=OWA-NT-Mail&amp;cid=dd99b2e6-3ffe-a296-e89a-e4be13bcca00&amp;ga=1">Software Architecure</a></p>
+<h3 id="error-handling">Error handling</h3>
+<p><a href="../../error_handling/">Error documentation</a></p>
+<h3 id="robot-cleaning">Robot cleaning</h3>
+<p><a href="../../robot_cleaning/To_do_cleaning_robo/">Cleaning Instructions</a>
+<a href="../../robot_cleaning/Putzanleitung/">Putzanleitung</a></p>
+<h2 id="password-management">Password Management</h2>
+<p>For password managament we use <a href="https://keepassxc.org/">KeePassXC</a>. The database is stored <a href="https://conboticsgmbh-my.sharepoint.com/:u:/g/personal/david_franke_conbotics_com/EW3KECtxcGlBq0BnWw6P9KkBTC_08Ah9AldsNxpt-ihQ-Q?e=C6jTZR">here</a>, for the Password and key file ask one of the employees.</p>
+<h2 id="tools">Tools</h2>
+<p>Collection of tools and developer stuff we are using, feel free to use the same or get yourself inspired for handy tools:</p>
+<p>https://github.com/conbotics/cb_tools</p>
+<p>https://github.com/conbotics/cb_tools/blob/master/tools.md</p>
+<h2 id="tutorials">Tutorials</h2>
+<p>For ssd backup: <a href="../../cb_tutorials/clonezilla/">Clonezilla</a></p>
+<p>For adapting the timings <a href="../../cb_tutorials/new_timings_instruction/">Timings</a></p>
+<h2 id="storage">Storage</h2>
+<p>NAS: used for rosbags vision datasets: <a href="../../cb_tutorials/access%20the%20OpenMediaVault%20software/">Nas Tutorial</a></p>
+<p>Cloud storage: Used for lager files to backup them online: <a href="https://conboticsgmbh-my.sharepoint.com/:f:/g/personal/david_franke_conbotics_com/Eq3TO58TviVLp7rBM260aPIBng6TEpa6dApAcdApVMiXLQ?e=PMi5Bf">Onedrive link</a></p>
+<p>Meetings: Onenote notebook for all our meetings <a href="https://conboticsgmbh.sharepoint.com/:o:/r/sites/ConBoticsGmbH/_layouts/15/Doc.aspx?sourcedoc=%7B47C625EE-AD63-4F16-A073-AA24508F4256%7D&amp;file=Meetings&amp;action=edit&amp;mobileredirect=true&amp;wdorigin=Sharepoint&amp;wdOrigin=OUTLOOK-METAOS.FILEBROWSER.FILES-SITES-FOLDER">Onenote</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,52 @@
+# apt
+net-tools
+aptitude
+xorg
+openbox
+make
+gcc
+can-utils
+curl
+tmux
+docker
+docker-compose
+
+ros-noetic-desktop-full
+python3-catkin-tools
+python3-vcstool
+python3-pcl
+pcl-tools
+
+ros-noetic-moveit
+ros-noetic-move-base
+ros-noetic-move-base-flex
+ros-noetic-ros-canopen
+ros-noetic-ira-laser-tools
+ros-noetic-flexbe-behavior-engine
+libmodbus-dev
+ros-noetic-robot-upstart
+ros-noetic-rosbridge-server
+ros-noetic-sick-safetyscanners
+ros-noetic-gmapping
+ros-noetic-carrot-planner
+ros-noetic-teb-local-planner
+ros-noetic-ros-controllers
+gitk
+python3-pip
+ros-noetic-robot-localization4
+ros-noetic-imu-filter-madgwick
+ros-noetic-rtabmap
+ros-noetic-rtabmap-slam
+ros-noetic-rtabmap-odom
+ntpdate
+ros-noetic-realsense2-camera
+apt-transport-https
+ros-noetic-grid-map
+ros-noetic-grid-map-msgs
+ros-noetic-pointcloud-to-laserscan
+
+# pip
+pydbus
+
+# commands
+python3 -m pip install -U pygame==2.5.0 --user
