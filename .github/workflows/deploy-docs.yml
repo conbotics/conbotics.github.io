@@ -1,89 +1,70 @@
-name: Update Submodules and Deploy Docs
+name: 📥 Receive Submodule Update
 
+# This workflow runs in your parent repository (conbotics.github.io)
 on:
-  push:
-    branches:
-      - master
+  # Listens for the event type sent by the Dispatcher workflow
+  repository_dispatch:
+    types: [submodule-update-needed]
 
 jobs:
-  update-submodules:
+  update-submodule:
     runs-on: ubuntu-latest
-    outputs:
-      updated: ${{ steps.update-submodules.outputs.updated }}
+    
+    # Define variables from the client_payload sent by the dispatching repo
+    env:
+      # These variables are passed directly from the client_payload
+      SHA: ${{ github.event.client_payload.sha }}
+      SUBMODULE_PATH: ${{ github.event.client_payload.submodule_path }}
+      PARENT_BRANCH: ${{ github.event.client_payload.branch }}
+      
+      # Use GitHub's built-in context variables
+      REPO_OWNER: ${{ github.repository_owner }}
+      PARENT_REPO: ${{ github.event.repository.name }}
+
     steps:
-      - name: Generate GitHub App token
+      # --- NEW STEP: Generate App Token for Commit ---
+      - name: Generate GitHub App installation token for Commit
         id: app-token
-        uses: actions/create-github-app-token@v1
+        uses: actions/create-github-app-token@v2
         with:
+          # ACTION REQUIRED: Ensure these secrets are available in the conbotics.github.io repository
           app-id: ${{ secrets.DOCS_APP_ID }}
           private-key: ${{ secrets.DOCS }}
+          owner: ${{ env.REPO_OWNER }}
+          repositories: ${{ env.PARENT_REPO }}
 
-      - name: Checkout main repo with submodules
-        uses: actions/checkout@v4
-        with:
-          token: ${{ steps.app-token.outputs.token }}          
-          submodules: recursive
-          fetch-depth: 0
-
-      - name: Set up Git user
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-      - name: Update submodules to latest
-        id: update-submodules
-        run: |
-          git submodule update --remote --merge
-          # Check if any submodule was updated
-          if ! git diff --quiet; then
-            echo "submodules updated"
-            echo ::set-output name=updated::true
-            git add .
-            git commit -m "Update submodule references to latest"
-            git push
-          else
-            echo "No submodule updates"
-            echo ::set-output name=updated::false
-          fi
-
-  deploy-docs:
-    needs: update-submodules
-    if: needs.update-submodules.outputs.updated == 'true'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Generate GitHub App token
-        id: app-token
-        uses: actions/create-github-app-token@v1
-        with:
-          app-id: ${{ secrets.DOCS_APP_ID }}
-          private-key: ${{ secrets.DOCS }}
-
-      - name: Checkout main repo with submodules
+      - name: Checkout Parent Repository (${{ env.PARENT_BRANCH }})
+        # Use the generated App token here
         uses: actions/checkout@v4
         with:
           token: ${{ steps.app-token.outputs.token }}
-          submodules: recursive
-          fetch-depth: 0
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: 3.9
-
-      - name: Install dependencies
+          ref: ${{ env.PARENT_BRANCH }}
+          
+      - name: Configure Git for Commit
         run: |
-          pip install mkdocs mkdocs-material doxygen
+          git config user.name "GitHub Actions Bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Generate Doxygen docs
-        run: doxygen Doxyfile
+      - name: ⚙️ Update Submodule Pointer and Commit
+        env:
+          APP_TOKEN: ${{ steps.app-token.outputs.token }} # Expose token to run environment
+        run: |
+          set -e # Exit immediately if any command fails
 
-      - name: Build MkDocs site
-        run: mkdocs build
+          echo "Updating submodule ${{ env.SUBMODULE_PATH }} to SHA: ${{ env.SHA }}"
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
-          publish_branch: master
-          force_orphan: true
+          # 1. Update the git index to point the submodule path to the received SHA
+          # Mode 160000 is for submodules
+          git update-index --cacheinfo 160000,${{ env.SHA }},${{ env.SUBMODULE_PATH }}
+
+          COMMIT_MESSAGE="CI: Update ${{ env.SUBMODULE_PATH }} to ${{ env.SHA }} (via dispatch - App)"
+          
+          # 2. Commit the change
+          # The '|| true' ensures the step doesn't fail if there's no actual change to commit
+          git commit -m "$COMMIT_MESSAGE" || true
+          
+          # 3. Push the change using the App Token
+          # We use the token directly in the push URL
+          git push https://x-access-token:${{ env.APP_TOKEN }}@github.com/${{ github.repository }} ${{ env.PARENT_BRANCH }}
+
+          echo "Submodule updated successfully in ${{ github.repository }} on ${{ env.PARENT_BRANCH }}."
