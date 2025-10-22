@@ -55,10 +55,32 @@ jobs:
         #    in the parent repository's current HEAD commit.
         git submodule update --init --recursive --remote --merge
         
-        # --- Cleanup ---
-        # Remove the temporary token injection from the global config
-        git config --global --unset-all url."https://x-access-token:$GH_TOKEN@github.com".insteadOf
+    - name: Commit and Push Submodule Pointer
+      env:
+        GH_TOKEN: ${{ steps.app-token.outputs.token }}
+      run: |
+        # 1. Clean up fetch config and set commit identity
+        git config --global --unset-all url."https://x-access-token:*@github.com".insteadOf || true
+        git config user.name "GitHub Submodule Bot"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+        # 2. Stage the change in the parent repo (the updated commit pointer)
+        git add ${{ env.SUBMODULE_PATH }}
         
+        # 3. Check if the pointer moved and commit/push if necessary
+        if ! git diff --cached --exit-code; then
+          echo "Submodule pointer moved. Committing change..."
+          LATEST_SHA=$(git -C ${{ env.SUBMODULE_PATH }} rev-parse HEAD)
+          
+          git commit -m "chore(submodule): Automated update of cb_docs pointer to ${LATEST_SHA}"
+          
+          # Push the pointer commit to the master branch
+          git push origin master
+          echo "Submodule pointer updated and pushed successfully to master."
+        else
+          echo "Submodule pointer was already at the latest remote SHA. No commit necessary."
+        fi
+
     # --- Build Steps ---
     - name: Install MkDocs and Dependencies
       run: |
@@ -67,3 +89,11 @@ jobs:
     - name: Build MkDocs Documentation
       run: |
         mkdocs build --clean
+
+    - name: Deploy to gh-pages branch
+      uses: peaceiris/actions-gh-pages@v3
+      if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
+      with:
+        personal_token: ${{ steps.app-token.outputs.token }}
+        publish_dir: ./site
+        publish_branch: gh-pages 
