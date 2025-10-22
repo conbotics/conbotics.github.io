@@ -1,94 +1,84 @@
 name: Sync and Update Submodules
 
-# This workflow runs in the Parent Repository (conbotics.github.io)
-# It is triggered by the 'repository_dispatch' event sent from the cb_docs submodule.
 on:
   repository_dispatch:
     types: [submodule-update-needed]
 
-# Permissions: We only need 'contents: read' since we are NOT pushing a commit.
 permissions:
-  contents: read 
+  contents: write  # Need write to push commits
 
 jobs:
   sync_and_update:
     runs-on: ubuntu-latest
     
-    # Define these parameters once at the job level
     env:
       REPO_OWNER: conbotics
+      # Extract from the dispatch payload
+      SUBMODULE_PATH: ${{ github.event.client_payload.submodule_path }}
+      BRANCH: ${{ github.event.client_payload.branch }}
+      SHA: ${{ github.event.client_payload.sha }}
 
     steps:
-    - name: Generate GitHub App token for Read access
+    - name: Debug - Show received payload
+      run: |
+        echo "Received dispatch event"
+        echo "Submodule path: ${{ env.SUBMODULE_PATH }}"
+        echo "Branch: ${{ env.BRANCH }}"
+        echo "SHA: ${{ env.SHA }}"
+    
+    - name: Generate GitHub App token
       id: app-token
       uses: actions/create-github-app-token@v2
       with:
         app-id: ${{ secrets.DOCS_APP_ID }}
         private-key: ${{ secrets.DOCS }}
         owner: ${{ env.REPO_OWNER }}
-        repositories: 'conbotics.github.io, cb_docs'
-        
-        permissions: |
-          contents: read
+        repositories: conbotics.github.io,cb_docs
 
     - name: Checkout Parent Repository Code (Full Clone)
       uses: actions/checkout@v4
       with:
         token: ${{ steps.app-token.outputs.token }}
-        # FIX 1: Perform a full clone (depth 0) to resolve "repository has to be local" error
+        ref: ${{ env.BRANCH }}  # Use the branch from payload
         fetch-depth: 0 
-        submodules: false # We will handle submodules manually
+        submodules: false
 
     - name: Authenticate, Sync, and Update Submodules
       env:
         GH_TOKEN: ${{ steps.app-token.outputs.token }}
       run: |
-        # --- Authentication Fix ---
-        # Inject the token into the submodule URL for authentication. 
-        # This allows 'git submodule update' to fetch private repositories.
         git config --global url."https://x-access-token:$GH_TOKEN@github.com".insteadOf "https://github.com"
-
-        # 1. Sync: Ensures the .gitmodules config is up-to-date with remote URLs
         git submodule sync
-        
-        # 2. Update: Initializes the submodule (if needed) and checks out the SHA recorded 
-        #    in the parent repository's current HEAD commit.
         git submodule update --init --recursive --remote --merge
         
     - name: Commit and Push Submodule Pointer
       env:
         GH_TOKEN: ${{ steps.app-token.outputs.token }}
-        REPO_URL: https://github.com/${{ env.REPO_OWNER }}/conbotics.github.io.git
-        AUTH_REPO_URL: https://x-access-token:${{ steps.app-token.outputs.token }}@github.com/${{ env.REPO_OWNER }}/conbotics.github.io.git
       run: |
-        # 1. Clean up fetch config and set commit identity
-        # This line clears the global token-based URL config from the previous step
         git config --global --unset-all url."https://x-access-token:*@github.com".insteadOf || true
         git config user.name "GitHub Submodule Bot"
         git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-        # 2. Stage the change in the parent repo (the updated commit pointer)
+        # Stage the submodule changes
         git add ${{ env.SUBMODULE_PATH }}
         
-        # 3. Check if the pointer moved and commit/push if necessary
-        if ! git diff --exit-code HEAD -- ${{ env.SUBMODULE_PATH }}; then
+        # Check if there are changes to commit
+        if ! git diff --cached --quiet; then
           echo "Submodule pointer moved. Committing change..."
 
-          LATEST_SHA=$(git ls-files --stage ${{ env.SUBMODULE_PATH }} | awk '{print $2}')
+          # Get the latest SHA from the submodule
+          LATEST_SHA=$(cd ${{ env.SUBMODULE_PATH }} && git rev-parse HEAD)
           
           git commit -m "chore(submodule): Automated update of cb_docs pointer to ${LATEST_SHA}"
           
-          git remote set-url origin $AUTH_REPO_URL
-
-          # CRITICAL FIX: Push using the token directly in the remote URL to guarantee authentication
-          echo "Pushing submodule pointer commit using token..."
-          git push origin master
-          echo "Submodule pointer updated and pushed successfully to master."
+          # Push using the token
+          git push https://x-access-token:${{ steps.app-token.outputs.token }}@github.com/${{ env.REPO_OWNER }}/conbotics.github.io.git HEAD:${{ env.BRANCH }}
+          
+          echo "Submodule pointer updated and pushed successfully to ${{ env.BRANCH }}."
         else
           echo "Submodule pointer was already at the latest remote SHA. No commit necessary."
         fi
 
-    # --- Build Steps ---
     - name: Install MkDocs and Dependencies
       run: |
         pip install mkdocs mkdocs-material
@@ -103,4 +93,4 @@ jobs:
       with:
         personal_token: ${{ steps.app-token.outputs.token }}
         publish_dir: ./site
-        publish_branch: gh-pages 
+        publish_branch: gh-pages
