@@ -4,4 +4,6 @@ theme:
 nav:
   - Home: index.md
   - Troubleshooting: cb_docs/support/troubleshooting.md
-
+markdown_extensions:
+  - pymdownx.details
+  - md_in_html
