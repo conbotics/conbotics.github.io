@@ -58,8 +58,10 @@ jobs:
     - name: Commit and Push Submodule Pointer
       env:
         GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        REPO_URL: https://github.com/${{ env.REPO_OWNER }}/conbotics.github.io.git
       run: |
         # 1. Clean up fetch config and set commit identity
+        # This line clears the global token-based URL config from the previous step
         git config --global --unset-all url."https://x-access-token:*@github.com".insteadOf || true
         git config user.name "GitHub Submodule Bot"
         git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -74,8 +76,10 @@ jobs:
           
           git commit -m "chore(submodule): Automated update of cb_docs pointer to ${LATEST_SHA}"
           
-          # Push the pointer commit to the master branch
-          git push origin master
+          # CRITICAL FIX: Push using the token directly in the remote URL to guarantee authentication
+          echo "Pushing submodule pointer commit using token..."
+          git push ${REPO_URL/https:\/\//https:\/\/x-access-token:$GH_TOKEN@} master
+          
           echo "Submodule pointer updated and pushed successfully to master."
         else
           echo "Submodule pointer was already at the latest remote SHA. No commit necessary."
