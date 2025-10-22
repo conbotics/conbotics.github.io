@@ -10,7 +10,6 @@ jobs:
   update-submodule:
     runs-on: ubuntu-latest
     
-    # Define variables from the client_payload sent by the dispatching repo
     env:
       # These variables are passed directly from the client_payload
       SHA: ${{ github.event.client_payload.sha }}
