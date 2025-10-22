@@ -1,86 +1,60 @@
-name: Receive Submodule Update
+name: Sync and Update Submodules
 
-# This workflow runs in your parent repository (conbotics.github.io)
+# This workflow runs in the Parent Repository (conbotics.github.io)
+# It is triggered by the 'repository_dispatch' event sent from the cb_docs submodule.
 on:
-  # Listens for the event type sent by the Dispatcher workflow
   repository_dispatch:
     types: [submodule-update-needed]
 
+# Permissions: We only need 'contents: read' since we are NOT pushing a commit.
+permissions:
+  contents: read 
+
 jobs:
-  update-submodule:
+  sync_and_update:
     runs-on: ubuntu-latest
     
+    # Define these parameters once at the job level
     env:
-      # These variables are passed directly from the client_payload
-      SHA: ${{ github.event.client_payload.sha }}
-      SUBMODULE_PATH: ${{ github.event.client_payload.submodule_path }}
-      PARENT_BRANCH: master
-      NEW_SUBMODULE_SHA: ${{ github.event.client_payload.sha }}
-
-      # Use GitHub's built-in context variables
       REPO_OWNER: conbotics
-      PARENT_REPO: conbotics.github.io
-
 
     steps:
-    - name: Display received payload information
-      run: |
-        echo "Dispatch received from cb_docs!"
-        echo "Target Branch: ${{ env.PARENT_BRANCH }}"
-        echo "Submodule Path: ${{ env.SUBMODULE_PATH }}"
-        echo "New Submodule SHA: ${{ env.NEW_SUBMODULE_SHA }}"
-        
-    - name: Generate GitHub App token for Write access
-      id: app-token
-      uses: actions/create-github-app-token@v2
-      with:
-        # Use the same secrets/App ID from the dispatch workflow
-        app-id: ${{ secrets.DOCS_APP_ID }}
-        private-key: ${{ secrets.DOCS }}
-        owner: ${{ env.REPO_OWNER }}
-        repositories: 'conbotics.github.io' # Only need access to the parent repo
-        
-    - name: Checkout Parent Repository Code
-      uses: actions/checkout@v4
-      with:
-        token: ${{ steps.app-token.outputs.token }} # Use the powerful App Token
-        ref: ${{ env.PARENT_BRANCH }}
-        submodules: false # Do NOT checkout the old submodule content yet
+      - name: Generate GitHub App token for Read access
+        id: app-token
+        uses: actions/create-github-app-token@v2
+        with:
+          # Use the same secrets/App ID from the dispatch workflow
+          app-id: ${{ secrets.DOCS_APP_ID }}
+          private-key: ${{ secrets.DOCS }}
+          owner: ${{ env.REPO_OWNER }}
+          repositories: 'conbotics.github.io, cb_docs' # Need read access to both for sync/update
+          
 
-    - name: Configure Git and Update Submodule Pointer
-      run: |
-        # Configure Git user for the commit
-        git config user.name "GitHub Submodule Bot"
-        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Checkout Parent Repository Code (with submodule support)
+        uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app-token.outputs.token }} # Use the App Token for private submodule access
+          submodules: false # Skip initial checkout to perform sync manually
 
-        # Update the submodule pointer in the parent repository to the new SHA
-        git submodule update --init --recursive --force ${{ env.SUBMODULE_PATH }}
-        
-        # This command ensures the parent repo uses the specific SHA from the payload
-        git -C ${{ env.SUBMODULE_PATH }} checkout ${{ env.NEW_SUBMODULE_SHA }}
-        
-        # Stage the change in the parent repo (which is the updated commit pointer)
-        git add ${{ env.SUBMODULE_PATH }}
-        
-    - name: Commit and Push Submodule Pointer Change
-      run: |
-        # Check if there are changes to commit (i.e., if the submodule pointer actually moved)
-        if ! git diff --cached --exit-code; then
-          git commit -m "chore(submodule): Automated update of cb_docs to ${{ env.NEW_SUBMODULE_SHA }}"
-          echo "Pushing submodule update to ${{ env.PARENT_BRANCH }}..."
-          git push origin ${{ env.PARENT_BRANCH }}
-          echo "Submodule pointer updated successfully."
-        else
-          echo "Submodule pointer was already at the latest SHA. No commit necessary."
-        fi
+      - name: Sync and Update Submodules
+        run: |
+          echo "Synchronizing remote URLs..."
+          # 1. Sync: Ensures the .gitmodules config is up-to-date with remote URLs
+          git submodule sync
+          
+          echo "Updating submodules to the SHA recorded in the index..."
+          # 2. Update: Initializes the submodule (if needed) and checks out the SHA recorded 
+          #    in the parent repository's current HEAD commit.
+          git submodule update --init --recursive
+          
+      # --- Build Steps ---
+      - name: Install MkDocs and Dependencies (Example)
+        # Your documentation tool needs to be installed here
+        run: |
+          pip install mkdocs mkdocs-material
 
-    - name: Install MkDocs and Dependencies (Example)
-      # You'll likely need to customize this part for your environment
-      run: |
-        pip install mkdocs mkdocs-material
-
-    - name: Build MkDocs Documentation
-      run: |
-        mkdocs build --clean
-        # Add any deployment steps here, e.g., using mkdocs gh-deploy if applicable.
-        # If you use the standard GH Pages action later, this step is for building the content.
+      - name: Build MkDocs Documentation
+        # This will build the documentation using the content checked out in the previous step
+        run: |
+          mkdocs build --clean
+          # Follow this with your deployment step (e.g., using a GitHub Pages action)
