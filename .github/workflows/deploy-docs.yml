@@ -13,19 +13,11 @@ jobs:
     
     env:
       REPO_OWNER: conbotics
-      # Extract from the dispatch payload
       SUBMODULE_PATH: ${{ github.event.client_payload.submodule_path }}
       BRANCH: ${{ github.event.client_payload.branch }}
       SHA: ${{ github.event.client_payload.sha }}
 
-    steps:
-    - name: Debug - Show received payload
-      run: |
-        echo "Received dispatch event"
-        echo "Submodule path: ${{ env.SUBMODULE_PATH }}"
-        echo "Branch: ${{ env.BRANCH }}"
-        echo "SHA: ${{ env.SHA }}"
-    
+    steps:   
     - name: Generate GitHub App token
       id: app-token
       uses: actions/create-github-app-token@v2
@@ -39,57 +31,43 @@ jobs:
       uses: actions/checkout@v4
       with:
         token: ${{ steps.app-token.outputs.token }}
-        ref: ${{ env.BRANCH }}  # Use the branch from payload
+        ref: ${{ env.BRANCH }} 
         fetch-depth: 0 
         submodules: false
 
-    - name: Authenticate, Sync, and Update Submodules
-      env:
-        GH_TOKEN: ${{ steps.app-token.outputs.token }}
+    - name: Update submodule to latest commit
       run: |
-        git config --global url."https://x-access-token:$GH_TOKEN@github.com".insteadOf "https://github.com"
+        git config --global url."https://x-access-token:${{ steps.app-token.outputs.token }}@github.com".insteadOf "https://github.com"
         git submodule sync
         git submodule update --init --recursive --remote --merge
         
-    - name: Commit and Push Submodule Pointer
-      env:
-        GH_TOKEN: ${{ steps.app-token.outputs.token }}
+    - name: Commit and push submodule pointer
       run: |
-        git config --global --unset-all url."https://x-access-token:*@github.com".insteadOf || true
         git config user.name "GitHub Submodule Bot"
         git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-        # Stage the submodule changes
+        
         git add ${{ env.SUBMODULE_PATH }}
         
-        # Check if there are changes to commit
-        if ! git diff --cached --quiet; then
-          echo "Submodule pointer moved. Committing change..."
-
-          # Get the latest SHA from the submodule
-          LATEST_SHA=$(cd ${{ env.SUBMODULE_PATH }} && git rev-parse HEAD)
-          
-          git commit -m "chore(submodule): Automated update of cb_docs pointer to ${LATEST_SHA}"
-          
-          # Push using the token
-          git push https://x-access-token:${{ steps.app-token.outputs.token }}@github.com/${{ env.REPO_OWNER }}/conbotics.github.io.git HEAD:${{ env.BRANCH }}
-          
-          echo "Submodule pointer updated and pushed successfully to ${{ env.BRANCH }}."
-        else
-          echo "Submodule pointer was already at the latest remote SHA. No commit necessary."
+        if git diff --cached --quiet; then
+          echo "No changes to submodule pointer"
+          exit 0
         fi
+        
+        LATEST_SHA=$(cd ${{ env.SUBMODULE_PATH }} && git rev-parse HEAD)
+        git commit -m "chore(submodule): update cb_docs to ${LATEST_SHA}"
+        
+        git push https://x-access-token:${{ steps.app-token.outputs.token }}@github.com/${{ env.REPO_OWNER }}/conbotics.github.io.git HEAD:${{ env.BRANCH }}
+        
+        echo "Submodule pointer updated to ${LATEST_SHA}"
 
-    - name: Install MkDocs and Dependencies
-      run: |
-        pip install mkdocs mkdocs-material
-
-    - name: Build MkDocs Documentation
-      run: |
-        mkdocs build --clean
-
-    - name: Deploy to gh-pages branch
+    - name: Install MkDocs
+      run: pip install mkdocs mkdocs-material
+    
+    - name: Build documentation
+      run: mkdocs build --clean
+    
+    - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
-      if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
       with:
         personal_token: ${{ steps.app-token.outputs.token }}
         publish_dir: ./site
