@@ -1597,249 +1597,202 @@
 <h2 id="troubleshooting-workflow">Troubleshooting Workflow</h2>
 <p>Start from <strong>Common problems</strong>. Solutions are categorized into specific <strong>tablet</strong>, <strong>mechanical/environment</strong>, <strong>electronics</strong>, and <strong>software</strong> checks. Each one of the problems, refers to a higher to lower level check/solution. User can refer until the electronics level, and the team takes care of the software level.</p>
 <h3 id="common-problems">Common problems</h3>
-<details markdown="1">
+<details>
 <summary><b>1 The robot does not initialize / Initialization timed out</b></summary>
-
-Refer to:
-
-- [2.7 Mechanical: Check arm calibration](#27-check-arm-calibration)  
-- [2.5 Mechanical: Check electrical cables](#25-check-electrical-cables)  
-- [4.3 Software: Check missing nodes](#43-check-missing-nodes)  
-
+<p>Refer to:</p>
+<ul>
+<li><a href="#27-check-arm-calibration">2.7 Mechanical: Check arm calibration</a>  </li>
+<li><a href="#25-check-electrical-cables">2.5 Mechanical: Check electrical cables</a>  </li>
+<li><a href="#43-check-missing-nodes">4.3 Software: Check missing nodes</a>  </li>
+</ul>
 </details>
-
-<details markdown="1">
+<details>
 <summary><b>2 The robot LED does not turn on / change color</b></summary>
-
-Refer to:
-
-- [2.5 Mechanical: Check electrical cables](#25-check-electrical-cables)  
-- [4.3 Software: Check missing nodes](#43-check-missing-nodes)    
-
+<p>Refer to:</p>
+<ul>
+<li><a href="#25-check-electrical-cables">2.5 Mechanical: Check electrical cables</a>  </li>
+<li><a href="#43-check-missing-nodes">4.3 Software: Check missing nodes</a>    </li>
+</ul>
 </details>
-
-<details markdown="1">
+<details>
 <summary><b>3 The base does not move</b></summary>
-
-Refer to:
-
-- [1.1 Tablet: Wi-Fi connection check](#11-wi-fi-connection-check)  
-- [2.4 Mechanical: Verify emergency button](#24-verify-emergency-button)  
-- [2.8 Mechanical: Verify lidar view](#28-verify-lidar-view)  
-- [4.1 Software: Check CAN communication](#41-check-can-communication)  
-
+<p>Refer to:</p>
+<ul>
+<li><a href="#11-wi-fi-connection-check">1.1 Tablet: Wi-Fi connection check</a>  </li>
+<li><a href="#24-verify-emergency-button">2.4 Mechanical: Verify emergency button</a>  </li>
+<li><a href="#28-verify-lidar-view">2.8 Mechanical: Verify lidar view</a>  </li>
+<li><a href="#41-check-can-communication">4.1 Software: Check CAN communication</a>  </li>
+</ul>
 </details>
-
-<details markdown="1">
+<details>
 <summary><b>4 The airless does not spray paint</b></summary>
-
-Possible causes:
-1. Spray valve air compressor not working  
-2. Airless device not working  
-3. Electrical connection issue  
-
-Check:
-
-- [2.12 Mechanical: Verify airless device pressure](#212-verify-airless-device-pressure)  
-- [2.13 Mechanical: Verify spray valve air compressor](#213-verify-spray-valve-air-compressor)  
-- [2.3 Mechanical: Verify pneumatic links, bolts, connectors, cables](#23-verify-pneumatic-links-bolts-connectors-and-cables)  
-- [2.14 Mechanical: Paint inlet tube clean](#214-check-paint-inlet-tube)  
-- [2.15 Mechanical: Clean airless filter](#215-clean-airless-filter)  
-- [2.16 Mechanical: Clean/replace pneumatic nozzle](#216-clean-or-replace-pneumatic-valve-nozzle)  
-- [2.17 Mechanical: Replace pneumatic tube](#217-replace-pneumatic-tube)  
-- [2.18 Mechanical: Check paint hoses](#218-verify-paint-hoses)  
-- [3.4 Electronics: Verify electric signal to spray valve and pressure switch](#34-verify-electric-signals)  
-
+<p>Possible causes:
+1. Spray valve air compressor not working<br />
+2. Airless device not working<br />
+3. Electrical connection issue  </p>
+<p>Check:</p>
+<ul>
+<li><a href="#212-verify-airless-device-pressure">2.12 Mechanical: Verify airless device pressure</a>  </li>
+<li><a href="#213-verify-spray-valve-air-compressor">2.13 Mechanical: Verify spray valve air compressor</a>  </li>
+<li><a href="#23-verify-pneumatic-links-bolts-connectors-and-cables">2.3 Mechanical: Verify pneumatic links, bolts, connectors, cables</a>  </li>
+<li><a href="#214-check-paint-inlet-tube">2.14 Mechanical: Paint inlet tube clean</a>  </li>
+<li><a href="#215-clean-airless-filter">2.15 Mechanical: Clean airless filter</a>  </li>
+<li><a href="#216-clean-or-replace-pneumatic-valve-nozzle">2.16 Mechanical: Clean/replace pneumatic nozzle</a>  </li>
+<li><a href="#217-replace-pneumatic-tube">2.17 Mechanical: Replace pneumatic tube</a>  </li>
+<li><a href="#218-verify-paint-hoses">2.18 Mechanical: Check paint hoses</a>  </li>
+<li><a href="#34-verify-electric-signals">3.4 Electronics: Verify electric signal to spray valve and pressure switch</a>  </li>
+</ul>
 </details>
-
-<details markdown="1">
+<details>
 <summary><b>5 Spray doesn’t start/stop at correct times on ceiling/floor</b></summary>
-
-Refer to:
-
-- [1.3 Tablet: Recalibrate spray timing](#13-recalibrate-spray-timing)  
-- [2.19 Mechanical: Verify arm alignment](#219-verify-axes-4-5-and-valve-alignment)  
-
+<p>Refer to:</p>
+<ul>
+<li><a href="#13-recalibrate-spray-timing">1.3 Tablet: Recalibrate spray timing</a>  </li>
+<li><a href="#219-verify-axes-4-5-and-valve-alignment">2.19 Mechanical: Verify arm alignment</a>  </li>
+</ul>
 </details>
-
-<details markdown="1">
+<details>
 <summary><b>6 Valve not aligned perpendicular to wall</b></summary>
-
-Refer to:
-
-- [1.4 Tablet: Home position calibration](#14-home-position-calibration)  
-- [2.19 Mechanical: Verify arm alignment](#219-verify-axes-4-5-and-valve-alignment)  
-- [4.13 Software: Motor CAN check](#413-motor-can-check)  
-
+<p>Refer to:</p>
+<ul>
+<li><a href="#14-home-position-calibration">1.4 Tablet: Home position calibration</a>  </li>
+<li><a href="#219-verify-axes-4-5-and-valve-alignment">2.19 Mechanical: Verify arm alignment</a>  </li>
+<li><a href="#413-motor-can-check">4.13 Software: Motor CAN check</a>  </li>
+</ul>
 </details>
-
-<details markdown="1">
+<details>
 <summary><b>7 Robot does not spray until end-wall</b></summary>
-
-Refer to:
-
-- [1.8 Tablet: Recalibrate Wheel Odometry](#18-recalibrate-wheel-odometry)  
-
+<p>Refer to:</p>
+<ul>
+<li><a href="#18-recalibrate-wheel-odometry">1.8 Tablet: Recalibrate Wheel Odometry</a>  </li>
+</ul>
 </details>
-
-<details markdown="1">
+<details>
 <summary><b>8 After pressing “Start Robot”, no pop-up appears</b></summary>
-
-Refer to:
-
-- [4.4 Software: Run roswtf](#44-run-roswtf)  
-- [4.5 Software: Verify UI request](#45-verify-ui-request)  
-- [4.6 Software: Verify robot state](#46-verify-robot-state)  
-- [4.10 Software: Robce](#410-run-robce)  
-
+<p>Refer to:</p>
+<ul>
+<li><a href="#44-run-roswtf">4.4 Software: Run roswtf</a>  </li>
+<li><a href="#45-verify-ui-request">4.5 Software: Verify UI request</a>  </li>
+<li><a href="#46-verify-robot-state">4.6 Software: Verify robot state</a>  </li>
+<li><a href="#410-run-robce">4.10 Software: Robce</a>  </li>
+</ul>
 </details>
-
-<details markdown="1">
+<details>
 <summary><b>9 Planning arm motion failed / “Builder failed”</b></summary>
-
-Refer to:
-
-- [1.6 Tablet: Verify dimensions](#16-verify-dimensions)  
-- [4.7 Software: Review rviz collisions](#47-review-rviz-collisions)  
-
+<p>Refer to:</p>
+<ul>
+<li><a href="#16-verify-dimensions">1.6 Tablet: Verify dimensions</a>  </li>
+<li><a href="#47-review-rviz-collisions">4.7 Software: Review rviz collisions</a>  </li>
+</ul>
 </details>
-
-<details markdown="1">
+<details>
 <summary><b>10 Arm crashed or stuck in dangerous position</b></summary>
-
-Refer to:
-
-- [1.4 Tablet: Home position calibration](#14-home-position-calibration)  
-- [1.5 Tablet: Restart PC](#15-restart-pc)  
-- [4.8 Software: Reset axes and reinitialize](#48-reset-sprayarm-axes)  
-- [4.9 Software: Arm2base goal check](#49-check-arm2base-goal)  
-
+<p>Refer to:</p>
+<ul>
+<li><a href="#14-home-position-calibration">1.4 Tablet: Home position calibration</a>  </li>
+<li><a href="#15-restart-pc">1.5 Tablet: Restart PC</a>  </li>
+<li><a href="#48-reset-sprayarm-axes">4.8 Software: Reset axes and reinitialize</a>  </li>
+<li><a href="#49-check-arm2base-goal">4.9 Software: Arm2base goal check</a>  </li>
+</ul>
 </details>
-
-<details markdown="1">
+<details>
 <summary><b>11 Tablet connection keeps dropping</b></summary>
-
-Refer to:
-
-- [2.10 Mechanical: Check environment interference](#210-check-electromagnetic-interference)  
-
+<p>Refer to:</p>
+<ul>
+<li><a href="#210-check-electromagnetic-interference">2.10 Mechanical: Check environment interference</a>  </li>
+</ul>
 </details>
-
-<details markdown="1">
+<details>
 <summary><b>12 Arm pauses for too long between spraylines</b></summary>
-
-Refer to:
-
-- [2.5 Mechanical: Check electrical cables](#25-check-electrical-cables)  
-
+<p>Refer to:</p>
+<ul>
+<li><a href="#25-check-electrical-cables">2.5 Mechanical: Check electrical cables</a>  </li>
+</ul>
 </details>
-
-<details markdown="1">
+<details>
 <summary><b>13 Motor 1 has disturbances / oscillations / inconsistent motion</b></summary>
-
-Refer to:
-
-- [1.7 Tablet: Warm up Motor 1](#17-warm-up-motor-1)  
-
+<p>Refer to:</p>
+<ul>
+<li><a href="#17-warm-up-motor-1">1.7 Tablet: Warm up Motor 1</a>  </li>
+</ul>
 </details>
-
-<details markdown="1">
+<details>
 <summary><b>14 Arm moves unevenly</b></summary>
-
-Refer to:
-
-- [2.20 Mechanical: Check axis 6 washer](#220-check-axis-6-washer)  
-
+<p>Refer to:</p>
+<ul>
+<li><a href="#220-check-axis-6-washer">2.20 Mechanical: Check axis 6 washer</a>  </li>
+</ul>
 </details>
-
-<details markdown="1">
+<details>
 <summary><b>15 Robot stopped during initialization with proximity errors</b></summary>
-
-Refer to:
-
-- [2.1 Mechanical: Clean the lidars](#21-clean-the-lidars)  
-
+<p>Refer to:</p>
+<ul>
+<li><a href="#21-clean-the-lidars">2.1 Mechanical: Clean the lidars</a>  </li>
+</ul>
 </details>
-
-<details markdown="1">
+<details>
 <summary><b>16 Robot stopped mid-painting, no pop-up shown</b></summary>
-
-Refer to:
-
-- [2.1 Mechanical: Clean the lidars](#21-clean-the-lidars)  
-
+<p>Refer to:</p>
+<ul>
+<li><a href="#21-clean-the-lidars">2.1 Mechanical: Clean the lidars</a>  </li>
+</ul>
 </details>
-
-<details markdown="1">
+<details>
 <summary><b>17 Spraylines misaligned / not reaching corners / gaps between lines</b></summary>
-
-Refer to:
-
-- [1.8 Tablet: Recalibrate Wheel Odometry](#18-recalibrate-wheel-odometry)  
-- [2.19 Mechanical: Verify arm alignment](#219-verify-axes-4-5-and-valve-alignment)  
-- [2.25 Mechanical: Pump tyres](#225-pump-tyres)  
-- [2.26 Mechanical: Tighten front wheels](#226-tighten-front-wheels)  
-
+<p>Refer to:</p>
+<ul>
+<li><a href="#18-recalibrate-wheel-odometry">1.8 Tablet: Recalibrate Wheel Odometry</a>  </li>
+<li><a href="#219-verify-axes-4-5-and-valve-alignment">2.19 Mechanical: Verify arm alignment</a>  </li>
+<li><a href="#225-pump-tyres">2.25 Mechanical: Pump tyres</a>  </li>
+<li><a href="#226-tighten-front-wheels">2.26 Mechanical: Tighten front wheels</a>  </li>
+</ul>
 </details>
-
-<details markdown="1">
+<details>
 <summary><b>18 Robot doesn’t drive straight</b></summary>
-
-Refer to:
-
-- [1.8 Tablet: Recalibrate Wheel Odometry](#18-recalibrate-wheel-odometry)  
-- [2.11 Mechanical: Verify room layout](#211-verify-room-layout)  
-- [2.25 Mechanical: Pump tyres](#225-pump-tyres)  
-- [2.26 Mechanical: Tighten front wheels](#226-tighten-front-wheels)  
-
+<p>Refer to:</p>
+<ul>
+<li><a href="#18-recalibrate-wheel-odometry">1.8 Tablet: Recalibrate Wheel Odometry</a>  </li>
+<li><a href="#211-verify-room-layout">2.11 Mechanical: Verify room layout</a>  </li>
+<li><a href="#225-pump-tyres">2.25 Mechanical: Pump tyres</a>  </li>
+<li><a href="#226-tighten-front-wheels">2.26 Mechanical: Tighten front wheels</a>  </li>
+</ul>
 </details>
-
-<details markdown="1">
+<details>
 <summary><b>19 Door/window detection errors (false positives/negatives)</b></summary>
-
-Refer to:
-
-- [2.9 Mechanical: Assess lighting](#29-assess-lighting)  
-
+<p>Refer to:</p>
+<ul>
+<li><a href="#29-assess-lighting">2.9 Mechanical: Assess lighting</a>  </li>
+</ul>
 </details>
-
-<details markdown="1">
+<details>
 <summary><b>20 Green button not flashing</b></summary>
-
-Refer to:
-
-- [2.4 Mechanical: Emergency button check](#24-verify-emergency-button)  
-- [2.6 Mechanical: Verify relays](#26-verify-relays)  
-
+<p>Refer to:</p>
+<ul>
+<li><a href="#24-verify-emergency-button">2.4 Mechanical: Emergency button check</a>  </li>
+<li><a href="#26-verify-relays">2.6 Mechanical: Verify relays</a>  </li>
+</ul>
 </details>
-
-<details markdown="1">
+<details>
 <summary><b>21 Arm axis 2 feels loose</b></summary>
-
-Refer to:
-
-- [2.22 Mechanical: Axis 2 screw check](#222-verify-motor-2-angle-gear-screws)  
-
+<p>Refer to:</p>
+<ul>
+<li><a href="#222-verify-motor-2-angle-gear-screws">2.22 Mechanical: Axis 2 screw check</a>  </li>
+</ul>
 </details>
-
-<details markdown="1">
+<details>
 <summary><b>22 Axis 3 not moving as expected</b></summary>
-
-Refer to:
-
-- [2.23 Mechanical: Tighten motor 3 drive belt](#223-tighten-motor-3-drive-belt)  
-
+<p>Refer to:</p>
+<ul>
+<li><a href="#223-tighten-motor-3-drive-belt">2.23 Mechanical: Tighten motor 3 drive belt</a>  </li>
+</ul>
 </details>
-
-<details markdown="1">
+<details>
 <summary><b>23 Axis 3 fails to reach home position properly</b></summary>
-
-Refer to:
-
-- [2.24 Mechanical: Check motor 3 limit switch](#224-check-motor-3-limit-switch)  
-
+<p>Refer to:</p>
+<ul>
+<li><a href="#224-check-motor-3-limit-switch">2.24 Mechanical: Check motor 3 limit switch</a>  </li>
+</ul>
 </details>
-
 <h4 id="1-tablet">1. Tablet</h4>
 <h5 id="11-wi-fi-connection-check">1.1 Wi-Fi Connection Check</h5>
 <p>Make sure you are connected to the Wi-Fi of the robot, the antenna is not covered, and there is network connection between the tablet and the robot.</p>
