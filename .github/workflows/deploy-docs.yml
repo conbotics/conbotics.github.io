@@ -53,7 +53,7 @@ jobs:
         
         # 2. Update: Initializes the submodule (if needed) and checks out the SHA recorded 
         #    in the parent repository's current HEAD commit.
-        git submodule update --init --recursive
+        git submodule update --init --recursive --remote --merge
         
         # --- Cleanup ---
         # Remove the temporary token injection from the global config
