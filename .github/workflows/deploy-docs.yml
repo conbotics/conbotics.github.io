@@ -19,42 +19,51 @@ jobs:
       REPO_OWNER: conbotics
 
     steps:
-      - name: Generate GitHub App token for Read access
-        id: app-token
-        uses: actions/create-github-app-token@v2
-        with:
-          # Use the same secrets/App ID from the dispatch workflow
-          app-id: ${{ secrets.DOCS_APP_ID }}
-          private-key: ${{ secrets.DOCS }}
-          owner: ${{ env.REPO_OWNER }}
-          repositories: 'conbotics.github.io, cb_docs' # Need read access to both for sync/update
-          
+    - name: Generate GitHub App token for Read access
+      id: app-token
+      uses: actions/create-github-app-token@v2
+      with:
+        app-id: ${{ secrets.DOCS_APP_ID }}
+        private-key: ${{ secrets.DOCS }}
+        owner: ${{ env.REPO_OWNER }}
+        repositories: 'conbotics.github.io, cb_docs'
+        
+        permissions: |
+          contents: read
 
-      - name: Checkout Parent Repository Code (with submodule support)
-        uses: actions/checkout@v4
-        with:
-          token: ${{ steps.app-token.outputs.token }} # Use the App Token for private submodule access
-          submodules: false # Skip initial checkout to perform sync manually
+    - name: Checkout Parent Repository Code (Full Clone)
+      uses: actions/checkout@v4
+      with:
+        token: ${{ steps.app-token.outputs.token }}
+        # FIX 1: Perform a full clone (depth 0) to resolve "repository has to be local" error
+        fetch-depth: 0 
+        submodules: false # We will handle submodules manually
 
-      - name: Sync and Update Submodules
-        run: |
-          echo "Synchronizing remote URLs..."
-          # 1. Sync: Ensures the .gitmodules config is up-to-date with remote URLs
-          git submodule sync
-          
-          echo "Updating submodules to the SHA recorded in the index..."
-          # 2. Update: Initializes the submodule (if needed) and checks out the SHA recorded 
-          #    in the parent repository's current HEAD commit.
-          git submodule update --init --recursive
-          
-      # --- Build Steps ---
-      - name: Install MkDocs and Dependencies (Example)
-        # Your documentation tool needs to be installed here
-        run: |
-          pip install mkdocs mkdocs-material
+    - name: Authenticate, Sync, and Update Submodules
+      env:
+        GH_TOKEN: ${{ steps.app-token.outputs.token }}
+      run: |
+        # --- Authentication Fix ---
+        # Inject the token into the submodule URL for authentication. 
+        # This allows 'git submodule update' to fetch private repositories.
+        git config --global url."https://x-access-token:$GH_TOKEN@github.com".insteadOf "https://github.com"
 
-      - name: Build MkDocs Documentation
-        # This will build the documentation using the content checked out in the previous step
-        run: |
-          mkdocs build --clean
-          # Follow this with your deployment step (e.g., using a GitHub Pages action)
+        # 1. Sync: Ensures the .gitmodules config is up-to-date with remote URLs
+        git submodule sync
+        
+        # 2. Update: Initializes the submodule (if needed) and checks out the SHA recorded 
+        #    in the parent repository's current HEAD commit.
+        git submodule update --init --recursive
+        
+        # --- Cleanup ---
+        # Remove the temporary token injection from the global config
+        git config --global --unset-all url."https://x-access-token:$GH_TOKEN@github.com".insteadOf
+        
+    # --- Build Steps ---
+    - name: Install MkDocs and Dependencies
+      run: |
+        pip install mkdocs mkdocs-material
+
+    - name: Build MkDocs Documentation
+      run: |
+        mkdocs build --clean
