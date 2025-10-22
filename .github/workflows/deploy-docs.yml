@@ -74,7 +74,7 @@ jobs:
         if ! git diff --exit-code HEAD -- ${{ env.SUBMODULE_PATH }}; then
           echo "Submodule pointer moved. Committing change..."
 
-          LATEST_SHA=$(git -C ${{ env.SUBMODULE_PATH }} rev-parse HEAD)
+          LATEST_SHA=$(git ls-files --stage ${{ env.SUBMODULE_PATH }} | awk '{print $2}')
           
           git commit -m "chore(submodule): Automated update of cb_docs pointer to ${LATEST_SHA}"
           
