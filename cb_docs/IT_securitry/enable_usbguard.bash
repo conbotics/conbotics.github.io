@@ -73,6 +73,7 @@ fi
 echo "Writing USBGuard rules for device type: $DEVICE_TYPE"
 if [ "$DEVICE_TYPE" = "jetson" ]; then
   cat >> "$USBGUARD_RULES_FILE" <<EOF
+allow id 8086:0b5c name "Intel(R) RealSense(TM) Depth Module 456 "
 block id *:*
 EOF
   cat >> "$USBGUARD_CONF_FILE" <<EOF
