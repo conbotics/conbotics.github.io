@@ -347,13 +347,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-startrun-the-simulation" class="md-nav__link">
+  <a href="#2-connection-startrun" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Start/Run the simulation
+      2. Connection &amp; Start/Run
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. Start/Run the simulation">
+    <nav class="md-nav" aria-label="2. Connection &amp; Start/Run">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -430,6 +430,30 @@
   <a href="#ssh-session-4-gazebo-streaming" class="md-nav__link">
     <span class="md-ellipsis">
       ssh session #4 (Gazebo streaming)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startrun-multiple-sims" class="md-nav__link">
+    <span class="md-ellipsis">
+      start/run multiple sims
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="start/run multiple sims">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#to-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      TO-DO:
     </span>
   </a>
   
@@ -591,6 +615,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#issue-7-dynamic-collision-checking-arm-planner-fails" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue #7 - dynamic collision checking -&gt; arm planner fails
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -686,7 +719,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#to-do" class="md-nav__link">
+  <a href="#to-do_1" class="md-nav__link">
     <span class="md-ellipsis">
       TO-DO:
     </span>
@@ -770,6 +803,57 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      On client:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-vnc-session-autostart-at-boot-systemd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Make vnc session autostart at boot - Systemd
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect-via-ubuntu-remote-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connect via ubuntu remote client
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#server-side-set-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server Side Set-Up:
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -798,16 +882,43 @@
 <h3 id="3-debugging">3. Debugging</h3>
 <hr />
 <h2 id="1-set-up_1">1. Set-Up</h2>
-<p>make sure following repos are checked out under simulation branch <strong>feat-sim</strong>:</p>
 <ol>
-<li>cb_sprayarm</li>
+<li>
+<p>Make sure the following repos are checked out under simulation branch <strong>feat-sim</strong>:</p>
+</li>
+<li>
+<p>cb_sprayarm</p>
+</li>
 <li>cb_base - is right now on <code>fix-sim-odometry</code></li>
 <li>cb_bringup</li>
 <li>cb_config</li>
 <li>cb_core</li>
 <li>cb_vision</li>
 </ol>
+<p>To checkout to the corresponding branch in all the repositories:</p>
+<pre><code>vcs custom --args checkout feat-sim
+</code></pre>
+<ol>
+<li>
+<p>Make sure your bash environment has the variables <code>ARM_NUMBER</code>, <code>BASE_NUMBER</code>, and <code>ROBOT_NUMBER</code> set.</p>
+</li>
+<li>
 <p>Make sure both <code>simulation</code> flags (<code>config/general/process/simulation</code> and <code>config/sprayarm/settings/simulation</code>) are set to <code>true</code> inside <code>cb_config/process_configs/process.yaml</code></p>
+</li>
+<li>
+<p>To control via the GUI app, build the <a href="https://github.com/conbotics/cb_ui_app">UI</a> on your machine, and run it in a terminal window. In the cb_ui_app folder, run:</p>
+</li>
+</ol>
+<pre><code class="language-bash">docker compose up -d
+</code></pre>
+<ul>
+<li>
+<p>for docker.io to work, you'll need docker.io</p>
+</li>
+<li>
+<p>In a browser, go to the address <code>http://localhost:5173</code> to view the app ,and from the splash screen, go to the Settings, and change the <strong>Robot IP</strong> to <code>localhost</code>. If you press the <code>Start</code> button now, it should say <code>Connected</code> in the top left corner.</p>
+</li>
+</ul>
 <h4 id="odometry-tuning">Odometry tuning</h4>
 <ul>
 <li>config file for odometry (I.e. which odometry topics to use) is located in <code>/cb/base/cb_navigation/cb_perception/config/ukf/ukf_cfg_tuned.yaml</code></li>
@@ -820,7 +931,13 @@
 <p><strong>Camera semantic segmentation</strong>
 - <code>cb_gazebo_plugins/src/gazebo_ros_semantic_camera.cpp</code></p>
 <h4 id="creating-new-worlds">Creating new worlds</h4>
-<p>start gazebo standalone (so add. models I.e. Base, wheels etc. dont get loaded in and metrics get saved in world file)</p>
+<ul>
+<li>start gazebo standalone (so add. models I.e. Base, wheels etc. and their metrics dont get loaded in and saved in world file)</li>
+<li>if you start a pre-existing world make sure to remove the following line from the .world file before doing so:</li>
+</ul>
+<pre><code class="language-bash">    &lt;plugin name=&quot;ros_link_attacher_plugin&quot; filename=&quot;libgazebo_ros_link_attacher.so&quot;/&gt;
+</code></pre>
+<p><strong>Gazebo standalone start</strong></p>
 <pre><code class="language-bash">/usr/bin/gazebo ~/catkin_ws/src/cb_base/cb_base_gazebo/worlds/room_90s.world
 </code></pre>
 <p>(removed gazebo alias - command gazebo works again)</p>
@@ -829,6 +946,11 @@
 <li>After editing - save as new world. Edit Labels accordingly in the <code>.world</code> file for semantic segmentation.</li>
 </ul>
 <p><strong>Labels are:</strong> wall; ceiling; floor; other; door; window; person; suv; sprayarm</p>
+<p><code>room_90s_long_wall_hole_obstacles.world</code></p>
+<ul>
+<li><em>map</em> gets selected inside <code>start_sim_world.launch</code></li>
+</ul>
+<p><img alt="room_90s_long_wall_hole_obstacles" src="../images/14.png" title="room_90s_long_wall_hole_obstacles" /></p>
 <h4 id="current-ipsaddresses">Current IP's/Addresses</h4>
 <ul>
 <li><code>192.168.1.101</code> - local ip</li>
@@ -839,7 +961,7 @@
 <li><a href="http://192.168.1.101:8081"><code>http://192.168.1.101:8081</code></a> - local gzweb access</li>
 <li><a href="http://100.114.232.9:8081"><code>http://100.114.232.9:8081</code></a> - remote gzweb access</li>
 </ul>
-<h2 id="2-startrun-the-simulation">2. Start/Run the simulation</h2>
+<h2 id="2-connection-startrun">2. Connection &amp; Start/Run</h2>
 <h3 id="21-local">2.1 local</h3>
 <ul>
 <li>Start Docker Container:</li>
@@ -866,9 +988,11 @@
 <p>launches: <code>roslaunch cb_bringup start_all_gazebo.launch</code></p>
 <ul>
 <li>Set wall height under <code>settings for all walls</code> in the GUI</li>
-<li>Wait for a few seconds (~5 sec), then press the play button in gazebo (lower left hand corner)</li>
+<li>Wait until you see <code>[attach_sprayarm-9] process has finished cleanly</code> before unpausing the Gazebo simulation. (~5 sec)</li>
 <li>Access the <a href="http://172.18.0.2:5173">GUI</a></li>
 </ul>
+<pre><code class="language-bash">rviz -d ~/catkin_ws/src/cb_bringup/config/rviz_config/3d_visualizer.rviz
+</code></pre>
 <h3 id="22-remote-headless-mode">2.2 remote (headless-mode)</h3>
 <pre><code class="language-bash">ssh conbotics@192.168.1.101
 </code></pre>
@@ -915,6 +1039,30 @@ rviz
 </code></pre>
 <p>launches: <code>cd ~/gzweb &amp;&amp; npm start -p 8081</code></p>
 <hr />
+<h3 id="startrun-multiple-sims">start/run multiple sims</h3>
+<pre><code class="language-bash">m_start_ros jose 1
+
+m_join_ros jose 1
+</code></pre>
+<ul>
+<li>this will start the container from the same previously used image</li>
+<li>argument <strong>1</strong> <code>jose</code> will select the first workspace</li>
+<li>maps ~/jose/catkin_ws to ~/catkin_ws inside the docker</li>
+<li>argument <strong>2</strong> sets the instance number - each container should start by using a custom instance number
+(TO-DO: add env. var. so users can see which instances are being used)</li>
+<li>tells the docker container to set different ports for GAZEBO, ROS &amp; GZWEB communication</li>
+</ul>
+<pre><code class="language-bash">bridge
+
+gazebo_pipe
+
+m_gzweb
+</code></pre>
+<p><code>m_gzweb</code>launches: cd ~/gzweb &amp;&amp; npm start -p <code>$gport</code></p>
+<h4 id="to-do">TO-DO:</h4>
+<ul>
+<li>assign individual ports inside the bridge for the gui</li>
+</ul>
 <h2 id="3-debugging_1">3. Debugging</h2>
 <p>For Debugging purposes - if a plotting tool is required - look no further and use <code>PlotJuggler</code>.</p>
 <pre><code class="language-bash">rosrun plotjuggler plotjuggler
@@ -922,7 +1070,7 @@ rviz
 <p>Can plot any topic - odometry, covariances etc...</p>
 <p><img alt="odometry plotjuggler" src="../images/9.png" title="plotjuggler odometry" />
 - great for analyzing causation and correlation
-- there is already an extensive config file for odometry testing inside <code>cb_bringup/config/plotjuggler/odometry_sim_2.xml</code></p>
+- an extensive config file for odometry testing is inside <code>cb_bringup/config/plotjuggler/odometry_sim_2.xml</code></p>
 <h3 id="related-issues">Related Issues</h3>
 <h4 id="issue-1-shift-in-odometry">Issue #1 - Shift in Odometry</h4>
 <ul>
@@ -1009,6 +1157,21 @@ rviz
 </li>
 </ul>
 <hr />
+<h4 id="issue-7-dynamic-collision-checking-arm-planner-fails">Issue #7 - dynamic collision checking -&gt; arm planner fails</h4>
+<ul>
+<li>we started to implement the dynamic collision in moveit using the <code>/spraybot/perception/slam_rt/cloud_map</code><ul>
+<li>the problem we encountered there was - that the octomap was build using the robots frame as the "static" map frame and the map was moving along with the robot</li>
+</ul>
+</li>
+</ul>
+<p><img alt="moveit_collision" src="../images/15.png" title="moveit_collision" /></p>
+<pre><code>- we solved this by changing the virtual joint inside `cb_sprayarm.srdf.xacro` to type `floating`and by using the map frame
+  - resulted in the expected map building behaviour - but every other arm planning process broke because of that
+</code></pre>
+<p><strong>changed files:</strong> <code>sensor_manager.launch.xml, cb_sprayarm.srdf.xacro, sensors_3d.yaml</code></p>
+<p><strong>Additionally this resulted in heavily oscillating odometry</strong></p>
+<p><img alt="moveit_collision_odom" src="../images/pos_y_oscill.png" title="moveit_collision_odom" /></p>
+<hr />
 <h3 id="minor-issues">Minor Issues</h3>
 <h4 id="missing-base-model-in-gzweb">Missing Base Model in gzweb</h4>
 <ul>
@@ -1056,7 +1219,7 @@ libGL error: failed to load driver: nouveau</p>
 <p>[INFO] [/spraybot/navigation/long_base_motion_server:407]: Getting odometry callbacks and found error.</p>
 <p>[WARN] (2025-09-26 13:07:36.470) SensorData.cpp:762::uncompressDataConst() Requested laser scan data, but the sensor data (42) doesn't have laser scan.</p>
 <hr />
-<h2 id="to-do">TO-DO:</h2>
+<h2 id="to-do_1">TO-DO:</h2>
 <h3 id="focus">Focus:</h3>
 <p>I will conclude with the issues that are the most pressing and that still persist:</p>
 <h4 id="odometry">Odometry</h4>
@@ -1071,6 +1234,8 @@ odometry output of ICP loc. gets too much focus/importance as fusion preferrs IC
 <li>fix model hosting for gzweb (gazebo models are cloned into gazebo_models)</li>
 <li>create a new world including obstacles and feasible wall changes</li>
 <li>GPU ray sensor - <code>gpu_ray</code>- gpu based ray casting/sensoring</li>
+<li>fix arm planning</li>
+<li>fails since <code>Issue 7</code></li>
 </ul>
 <hr />
 <h3 id="know-how">Know-How:</h3>
@@ -1082,15 +1247,19 @@ odometry output of ICP loc. gets too much focus/importance as fusion preferrs IC
 <ul>
 <li>meshes</li>
 <li>materials</li>
-<li>model.config</li>
-<li>cb_base.sdf</li>
+<li><code>model.config</code></li>
+<li><code>cb_base.sdf</code></li>
 </ul>
 </li>
 <li>
-<p>convert xacro -&gt; urdf -&gt; sdf (model paths in sdf should be relative to <em>GAZEBO_MODEL_PATH</em>)</p>
+<p>model paths in sdf/urdf/xacro have to be relative to <em>GAZEBO_MODEL_PATH</em></p>
 </li>
+<li><code>&lt;mesh filename="model://..."/&gt;</code></li>
+<li>convert xacro -&gt; urdf -&gt; sdf </li>
 </ul>
 <pre><code class="language-bash">xacro cb_base.xacro use_link_attacher:=false &gt; cb_base.urdf
+.OR.
+xacro cb_base.xacro robot_description:=spraybot/base/robot_description namespace:=spraybot/base sensors_ns:=spraybot/sensors use_link_attacher:=false &gt; cb_base.urdf
 
 gz sdf -p cb_base.urdf &gt; cb_base.sdf
 </code></pre>
@@ -1109,7 +1278,10 @@ gz sdf -p cb_base.urdf &gt; cb_base.sdf
 </ul>
 <pre><code class="language-bash">npm run deploy --- -m
 </code></pre>
-<p><img alt="gzweb_sdf_representation" src="../images/13.png" title="gzweb" /></p>
+<ul>
+<li>sources local and remote models
+<img alt="gzweb_sdf_representation" src="../images/13.png" title="gzweb" /></li>
+</ul>
 <hr />
 <h4 id="gzweb-set-up">GZWEB Set-Up</h4>
 <p>(TO-DO: needs to be included in dockerfile) - DONE</p>
@@ -1118,7 +1290,7 @@ gz sdf -p cb_base.urdf &gt; cb_base.sdf
 <li>all subsequent builds dont need the <code>-m</code>flag - it grabs all the models both locally and from the remote model database.</li>
 <li><strong>GZWEB</strong> needs the "unique" models I.e. the ones that werent sourced/build from gazebo assets in a specified location to host them. (Sim link should be enough)</li>
 <li>Affected are the .STL files in the meshes directory</li>
-<li><code>&lt;mesh filename&gt;</code>inside <code>cb_base/cb_base_description/urdf/modules</code> for both <code>body.xacro</code> and <code>caster_wheel.xacro</code> need to be adapted</li>
+<li>both <code>body.xacro</code> and <code>caster_wheel.xacro</code> </li>
 </ul>
 <pre><code class="language-bash">sudo apt install libjansson-dev imagemagick
 
@@ -1147,6 +1319,43 @@ npm start -p 8081
 <p>hosted site:
 http://localhost:8081/</p>
 <hr />
+<h3 id="security">Security:</h3>
+<ul>
+<li>Advisable to create tunnel - tunnel vnc connection over SSH.</li>
+</ul>
+<h4 id="on-client">On client:</h4>
+<pre><code class="language-bash">ssh -L 5901:localhost:5901 &lt;username&gt;@&lt;server_ip&gt;
+</code></pre>
+<p>Connect then via VNC client</p>
+<p>vncviewer localhost:1 .OR. vncviewer localhost::5901</p>
+<p><strong>kill session</strong>
+vncserver -kill :1</p>
+<hr />
+<h3 id="make-vnc-session-autostart-at-boot-systemd">Make vnc session autostart at boot - Systemd</h3>
+<h3 id="connect-via-ubuntu-remote-client">Connect via ubuntu remote client</h3>
+<p>For vncviewer</p>
+<pre><code class="language-bash">sudo apt install tigervnc-viewer
+    vncviewer &lt;host_ip&gt;:5901
+    vncviewer 100.114.232.9:5902 - For vncserver 2
+</code></pre>
+<p>For Remmina</p>
+<pre><code class="language-bash">sudo apt install remmina remmina-plugin-vnc
+  remmina
+</code></pre>
+<p>-&gt; new connection -&gt; Protocol: VNC - Virtual Network Computing (Server: <host_ip>:5901)</p>
+<h3 id="server-side-set-up">Server Side Set-Up:</h3>
+<p>nano ~/.vnc/xstartup</p>
+<h1 id="binbash">!/bin/bash</h1>
+<p>unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+exec startxfce4</p>
+<p>chmod +x ~/.vnc/xstartup</p>
+<h4 id="light-locker-issues">light-locker issues</h4>
+<pre><code class="language-bash">mkdir -p ~/.config/autostart
+cp /etc/xdg/autostart/light-locker.desktop ~/.config/autostart/
+nano ~/.config/autostart/light-locker.desktop
+Hidden=true
+</code></pre>
 
 
 

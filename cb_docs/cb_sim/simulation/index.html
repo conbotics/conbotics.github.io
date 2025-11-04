@@ -271,6 +271,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#to-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      TO-DO:
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -318,12 +327,12 @@ export ROBOT_NUMBER=04
 <p>To visualize in rviz:</p>
 </li>
 </ol>
-<pre><code>rviz -d ./src/cb_bringup/config/rviz_config/3d_visualizer.rviz
+<pre><code>rviz -d ~/catkin_ws/src/cb_bringup/config/rviz_config/3d_visualizer rviz
 </code></pre>
 <ol>
 <li>To control via the GUI app, build the <a href="https://github.com/conbotics/cb_ui_app">UI</a> on your machine, and run it in a terminal window. In the cb_ui_app folder, run:</li>
 </ol>
-<pre><code>docker compose up
+<pre><code>docker compose up -d
 </code></pre>
 <ol>
 <li>
@@ -345,10 +354,12 @@ export ROBOT_NUMBER=04
 <h2 id="to-run-only-the-arm">To run only the arm:</h2>
 <pre><code>roslaunch cb_bringup start_sprayarm_sim.launch
 </code></pre>
-<p>Notes:
-- maybe this is needed in cb_sprayarm_description/urdf/modules/m2_axis.xacro:</p>
-<pre><code>&lt;dynamics damping=&quot;30.0&quot; friction=&quot;30.0&quot;/&gt;
-</code></pre>
+<h2 id="to-do">TO-DO:</h2>
+<p>include doc. for following: (GUI APP)
+get gui repo (gui "app")
+docker compose up -d (apt install docker.io)
+feat-merge-redesign</p>
+<p>[ERROR] [/rviz_1760716691584881570:149]: Object recognition action: Unable to connect to move_group action server within allotted time</p>
 
 
 
