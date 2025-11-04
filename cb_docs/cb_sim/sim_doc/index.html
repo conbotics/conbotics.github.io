@@ -956,7 +956,6 @@
 <li><code>192.168.1.101</code> - local ip</li>
 <li><code>100.114.232.9</code> - netbird ip</li>
 <li><a href="http://localhost:5173/"><code>http://localhost:5173/</code></a> - gui</li>
-<li><a href="http://172.18.0.2:5173/"><code>http://172.18.0.2:5173/</code></a> - gui - remote access?</li>
 <li><a href="http://localhost:8081"><code>http://localhost:8081</code></a> - gzweb</li>
 <li><a href="http://192.168.1.101:8081"><code>http://192.168.1.101:8081</code></a> - local gzweb access</li>
 <li><a href="http://100.114.232.9:8081"><code>http://100.114.232.9:8081</code></a> - remote gzweb access</li>
@@ -1355,6 +1354,46 @@ exec startxfce4</p>
 cp /etc/xdg/autostart/light-locker.desktop ~/.config/autostart/
 nano ~/.config/autostart/light-locker.desktop
 Hidden=true
+</code></pre>
+<pre><code class="language-bash">mstart_docker_ros_noetic_hl() {
+    # Default argument if none given
+    local ws_name=${1:-develop}
+    local instance_name=${2:-1}
+    local container_name=&quot;ros-noetic-${ws_name}-${instance_name}-hl&quot;
+    local ws_path=&quot;/home/conbotics/${ws_name}/catkin_ws&quot;
+    #Network connection
+    local base_port=11311
+    local gazebo_base_port=11345
+    local gzport=8081
+    local ros_port=$((base_port + instance_name))
+    local gazebo_port=$((gazebo_base_port + instance_name))
+    local gzport_new=$((gzport + instance_name))
+
+    echo &quot;Starting container: ${container_name}, with port: ${ros_port}&quot;
+    echo &quot;Workspace: ${ws_path}&quot;
+    docker run -it \
+      --gpus all \
+      --name=${container_name} \
+      --user conbotics \
+      --network=bridge \
+      -p ${ros_port}:11311 \
+      -p ${gazebo_port}:11345 \
+      -p ${gzport_new}:8081 \
+      -p 9090:9090 \
+      --ipc=host \
+      --env ROS_MASTER_URI=http://localhost:${ros_port} \
+      --env GAZEBO_MASTER_URI=http://localhost:${gazebo_port} \
+      --env gport=${gzport_new} \
+      --env DISABLE_ROS1_EOL_WARNINGS=true \
+      --device=/dev/dri:/dev/dri \
+      --env &quot;DISPLAY=:1&quot; \
+      --volume=&quot;/tmp/.X11-unix:/tmp/.X11-unix:rw&quot; \
+      --volume ~/.docker-persist/history/bash_history:/root/.bash_history \
+      -e &quot;TERM=xterm-256color&quot; \
+      -w /home/conbotics \
+      --mount type=bind,source=${ws_path},target=/home/conbotics/catkin_ws \
+      --rm ros-noetic;
+}
 </code></pre>
 
 
