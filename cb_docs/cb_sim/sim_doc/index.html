@@ -1154,7 +1154,7 @@ The workspaces that are set up as of now are the following:
   - develop
   - testing
   - vision
-  - sim_1, sim_2, sim_3, sim_4</p>
+  - sim_1, sim_2, sim_3, sim_4 (copies of the default commmitted feat-sim workspace)</p>
 <pre><code class="language-bash">ssh conbotics@192.168.1.101
 </code></pre>
 <pre><code class="language-bash">m_start_ros_hl develop 2
@@ -1176,11 +1176,22 @@ Workspace: /home/conbotics/WS/develop/catkin_ws
 </code></pre>
 <pre><code class="language-bash">bridge
 </code></pre>
+<ul>
+<li>use the configuration example as shown in <strong>Access Points</strong></li>
+<li>Wait until you see something along the lines of <code>MR05 (Simulation)</code> in the upper left corner of your gui</li>
+<li>Restart if it only shows disconnected</li>
+</ul>
 <pre><code class="language-bash">gazebo_pipe
 </code></pre>
+<ul>
+<li>If attach failed error appears or gazebo-1 process error - restart <code>gazebo_pipe</code> - bridge does not need to be restarted</li>
+</ul>
 <pre><code class="language-bash">gzweb
 </code></pre>
-<p>launches: cd ~/gzweb &amp;&amp; npm start -p 8081</p>
+<p><strong>launches:</strong> cd ~/gzweb &amp;&amp; npm start -p 8081</p>
+<p>To start the gazebo sim, enter:</p>
+<pre><code class="language-bash">rosservice call /gazebo/unpause/physics
+</code></pre>
 <h4 id="access-points-for-given-example-above">Access Points (for given example above):**</h4>
 <p><code>GUI_APP</code> Network setting: <code>IP</code>: 192.168.1.202 <code>Port</code>: 9090</p>
 <p><code>Gazebo Online view</code> Address: <strong>192.168.1.202</strong>:8081</p>
