@@ -512,6 +512,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#state-2711" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        State 27.11
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#access-points-for-given-example-above" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -833,62 +844,6 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#to-do" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TO-DO:
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="TO-DO:">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#focus" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Focus:
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Focus:">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#odometry" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Odometry
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tasks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tasks:
-      
-    </span>
-  </a>
-  
-</li>
-        
           <li class="md-nav__item">
   <a href="#know-how" class="md-nav__link">
     <span class="md-ellipsis">
@@ -898,7 +853,8 @@
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Know-How:">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#how-to-convert-modular-urdf-ie-multiple-xacros-into-sdf" class="md-nav__link">
@@ -909,8 +865,12 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="How to convert modular URDF (I.e. multiple xacros) into .SDF">
-      <ul class="md-nav__list">
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#gzweb-set-up" class="md-nav__link">
@@ -921,7 +881,8 @@
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="GZWEB Set-Up">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#gzweb-usage" class="md-nav__link">
@@ -945,19 +906,19 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#old-docker-setup-multiple-sim-setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Old Docker Setup - multiple sim setup
-      
-    </span>
-  </a>
+      </ul>
+    </nav>
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#macvlan-network-setup-allows-for-multiple-simultaneous-simulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Macvlan network setup - allows for multiple simultaneous simulations
+      
+    </span>
+  </a>
   
 </li>
         
@@ -1149,17 +1110,22 @@ rviz
 <h3 id="23-multiple-simultaneous-simulations-setup-for-remote-access">2.3 Multiple simultaneous Simulations setup for remote access</h3>
 <h4 id="startrun-multiple-sims">start/run multiple sims</h4>
 <p><strong>NOTE:</strong>
-The workspaces that are set up as of now are the following:
-  - jose
+The workspaces - (located at <code>~/WS/</code>) - that are set up as of now are the following:
   - develop
   - testing
   - vision
-  - sim_1, sim_2, sim_3, sim_4 (copies of the default commmitted feat-sim workspace)</p>
+  - sim_1, sim_2, sim_3, sim_4 
+  - additionally every person working on the sim should create their own workspace</p>
+<h4 id="state-2711">State 27.11</h4>
+<ul>
+<li>workspace <strong>develop</strong> got every repo that was on <code>feat-sim</code> updated by merging the <code>production</code>branch into them</li>
+<li>workspace <strong>develop</strong> was then used as the basis for every other workspace</li>
+</ul>
 <pre><code class="language-bash">ssh conbotics@192.168.1.101
 </code></pre>
-<pre><code class="language-bash">m_start_ros_hl develop 2
+<pre><code class="language-bash">start_roshl develop 2
 
-m_join_ros_hl develop 2
+join_roshl develop 2
 </code></pre>
 <ul>
 <li>argument <strong>1</strong> <code>develop</code> selects the workspace (name of the workspace inside home dir.)</li>
@@ -1184,12 +1150,14 @@ Workspace: /home/conbotics/WS/develop/catkin_ws
 <pre><code class="language-bash">gazebo_pipe
 </code></pre>
 <ul>
-<li>If attach failed error appears or gazebo-1 process error - restart <code>gazebo_pipe</code> - bridge does not need to be restarted</li>
+<li>If <code>attach failed</code> <strong>error</strong> appears or <code>gazebo-1</code> process <strong>error</strong> -&gt; restart <code>gazebo_pipe</code> - bridge does not need to be restarted</li>
 </ul>
 <pre><code class="language-bash">gzweb
 </code></pre>
 <p><strong>launches:</strong> cd ~/gzweb &amp;&amp; npm start -p 8081</p>
-<p>To start the gazebo sim, enter:</p>
+<ul>
+<li>To start the gazebo sim, enter:</li>
+</ul>
 <pre><code class="language-bash">rosservice call /gazebo/unpause/physics
 </code></pre>
 <h4 id="access-points-for-given-example-above">Access Points (for given example above):**</h4>
@@ -1371,27 +1339,8 @@ libGL error: failed to load driver: nouveau</p>
 <p>[INFO] [/spraybot/navigation/long_base_motion_server:407]: Getting odometry callbacks and found error.</p>
 <p>[WARN] (2025-09-26 13:07:36.470) SensorData.cpp:762::uncompressDataConst() Requested laser scan data, but the sensor data (42) doesn't have laser scan.</p>
 <hr />
-<h2 id="to-do">TO-DO:</h2>
-<h3 id="focus">Focus:</h3>
-<p>I will conclude with the issues that are the most pressing and that still persist:</p>
-<h4 id="odometry">Odometry</h4>
-<p>Wheel odometry for translatory x and y values slowly converges (either up or down)
-odometry output of ICP loc. gets too much focus/importance as fusion preferrs ICP values
-  - covariances?</p>
-<hr />
-<h3 id="tasks">Tasks:</h3>
-<ul>
-<li>include gzweb in startup node of gazebo (gazebo needs to be launched beforehand)</li>
-<li>further analyze odometry topics and document</li>
-<li>fix model hosting for gzweb (gazebo models are cloned into gazebo_models)</li>
-<li>create a new world including obstacles and feasible wall changes</li>
-<li>GPU ray sensor - <code>gpu_ray</code>- gpu based ray casting/sensoring</li>
-<li>fix arm planning</li>
-<li>fails since <code>Issue 7</code></li>
-</ul>
-<hr />
 <h3 id="know-how">Know-How:</h3>
-<h3 id="how-to-convert-modular-urdf-ie-multiple-xacros-into-sdf">How to convert modular URDF (I.e. multiple xacros) into .SDF</h3>
+<h4 id="how-to-convert-modular-urdf-ie-multiple-xacros-into-sdf">How to convert modular URDF (I.e. multiple xacros) into .SDF</h4>
 <ul>
 <li>.sdf folder structure (preferred type for gzweb)</li>
 <li>
@@ -1435,7 +1384,7 @@ gz sdf -p cb_base.urdf &gt; cb_base.sdf
 <img alt="gzweb_sdf_representation" src="../images/13.png" title="gzweb" /></li>
 </ul>
 <hr />
-<h4 id="gzweb-set-up">GZWEB Set-Up</h4>
+<h3 id="gzweb-set-up">GZWEB Set-Up</h3>
 <p>(TO-DO: needs to be included in dockerfile) - DONE</p>
 <ul>
 <li><code>GAZEBO_MODEL_PATH</code> needs to be set prior to using the deploy command</li>
@@ -1468,8 +1417,8 @@ npm run deploy --- -m
 npm start -p 8081
   (idk why but port 8080 is not open for use)
 </code></pre>
-<p>hosted site:
-http://localhost:8081/</p>
+<p><strong>hosted site:</strong>
+- <code>http://&lt;local_ip&gt;:8081/</code></p>
 <hr />
 <h4 id="forwardingmasquerade">Forwarding/Masquerade</h4>
 <pre><code class="language-bash">sudo sysctl -w net.ipv4.ip_forward=1
@@ -1479,6 +1428,8 @@ sudo iptables -A FORWARD -i docker0 -o wlp13s0 -j ACCEPT
 
 sudo iptables -t nat -A POSTROUTING -s 172.17.0.0/16 -o wlp13s0 -j MASQUERADE
 </code></pre>
+<hr />
+<h3 id="macvlan-network-setup-allows-for-multiple-simultaneous-simulations">Macvlan network setup - allows for multiple simultaneous simulations</h3>
 <pre><code class="language-bash">docker network create -d macvlan \
   --subnet=192.168.1.0/24 \
   --gateway=192.168.1.1 \
@@ -1486,66 +1437,7 @@ sudo iptables -t nat -A POSTROUTING -s 172.17.0.0/16 -o wlp13s0 -j MASQUERADE
   -o parent=eno1 \
   ros_macvlan_net
 </code></pre>
-<h4 id="old-docker-setup-multiple-sim-setup">Old Docker Setup - multiple sim setup</h4>
-<pre><code class="language-bash">  mstart_docker_ros_noetic_hl() {
-    # Default argument if none given
-    local ws_name=${1:-develop}
-    local instance_name=${2:-1}
-    local container_name=&quot;ros-noetic-${ws_name}-${instance_name}-hl&quot;
-    local ws_path=&quot;/home/conbotics/${ws_name}/catkin_ws&quot;
-    #Network connection
-    local base_port=11311
-    local gazebo_base_port=11345
-    local gzport=8081
-    local websocket=9090
-    local websocket_p=9095
-    local ros_port=$((base_port + instance_name))
-    local gazebo_port=$((gazebo_base_port + instance_name))
-    local gzport_new=$((gzport + instance_name))
-    local websocket_port=$((websocket))
-    local websocket_pub=$((websocket_p + instance_name))
-    local host_ip=$(hostname -I | awk '{print $1}')
-
-    # --- Network setup ---
-    local ip_base=200
-    local ip_suffix=$((ip_base + instance_name))
-    local container_ip=&quot;192.168.1.${ip_suffix}&quot;
-
-    echo &quot;Starting container: ${container_name}&quot;
-    echo &quot;ROS_PORT: ${ros_port}&quot;
-    echo &quot;GAZEBO_PORT: ${gazebo_port}&quot;
-    echo &quot;GZWEB_PORT: ${gzport_new}&quot;
-    echo &quot;WEBSOCKET_PORT: ${websocket_port}&quot;
-    echo &quot;PUB WEBSOCKET_PORT: ${websocket_pub}&quot;
-    echo &quot;Workspace: ${ws_path}&quot;
-    echo &quot;Host IP: ${host_ip}&quot;
-
-    docker run -it \
-      --gpus all \
-      --name=${container_name} \
-      --user conbotics \
-      --network=ros_macvlan_net \
-      -p ${ros_port}:11311 \
-      -p ${gazebo_port}:11345 \
-      -p ${gzport_new}:8081 \
-      -p ${websocket_pub}:${websocket_port} \
-      --ipc=host \
-      --env ROB_FOLDERS_IGNORE_CMAKE_PREFIX_PATH=1 \
-      --env PUB_BRIDGE_PORT=${websocket_pub} \
-      --env BRIDGE_PORT=${websocket_port} \
-      --env GAZEBO_MASTER_URI=http://localhost:11345 \
-      --env gport=8081 \
-      --env DISABLE_ROS1_EOL_WARNINGS=true \
-      --device=/dev/dri:/dev/dri \
-      --env &quot;DISPLAY=:1&quot; \
-      --volume=&quot;/tmp/.X11-unix:/tmp/.X11-unix:rw&quot; \
-      --volume ~/.docker-persist/history/bash_history:/root/.bash_history \
-      -e &quot;TERM=xterm-256color&quot; \
-      -w /home/conbotics \
-      --mount type=bind,source=${ws_path},target=/home/conbotics/catkin_ws \
-      --rm ros-noetic; 
-}
-</code></pre>
+<hr />
 
 
 
