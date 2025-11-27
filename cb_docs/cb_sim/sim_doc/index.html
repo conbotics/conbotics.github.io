@@ -544,6 +544,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#how-to-see-which-and-how-many-simulations-are-running" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to see which and how many simulations are running
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1170,6 +1181,18 @@ Workspace: /home/conbotics/WS/develop/catkin_ws
 <h4 id="remote-rviz">Remote Rviz</h4>
 <p><code>ROS_IP</code>: <strong>Remote machine IP</strong></p>
 <p><code>ROS_MASTER_URI</code>: http://192.168.1.202:11311</p>
+<h4 id="how-to-see-which-and-how-many-simulations-are-running">How to see which and how many simulations are running</h4>
+<ul>
+<li>inside terminal just enter <code>list_sims</code></li>
+</ul>
+<pre><code class="language-bash">--- Running ROS Noetic Simulations ---
+INSTANCE ID     WORKSPACE            IP ADDRESS      CONTAINER NAME                          
+--------------------------------------------------------------------------------------------
+1               atlas                192.168.1.201   ros-noetic-atlas-1-hl                   
+2               develop              192.168.1.202   ros-noetic-develop-2-hl                 
+--------------------------------------------------------------------------------------------
+Total Simulations Running: 2
+</code></pre>
 <p><strong>Bash script for ROS env var export</strong></p>
 <pre><code class="language-bash">rosremote() {
         local instance=$1
