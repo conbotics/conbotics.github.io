@@ -501,10 +501,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#startrun-multiple-sims" class="md-nav__link">
+  <a href="#state-2711" class="md-nav__link">
     <span class="md-ellipsis">
       
-        start/run multiple sims
+        State 27.11
       
     </span>
   </a>
@@ -512,10 +512,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#state-2711" class="md-nav__link">
+  <a href="#startrun-multiple-sims" class="md-nav__link">
     <span class="md-ellipsis">
       
-        State 27.11
+        start/run multiple sims
       
     </span>
   </a>
@@ -1108,7 +1108,6 @@ rviz
 <p>launches: <code>cd ~/gzweb &amp;&amp; npm start -p 8081</code></p>
 <hr />
 <h3 id="23-multiple-simultaneous-simulations-setup-for-remote-access">2.3 Multiple simultaneous Simulations setup for remote access</h3>
-<h4 id="startrun-multiple-sims">start/run multiple sims</h4>
 <p><strong>NOTE:</strong>
 The workspaces - (located at <code>~/WS/</code>) - that are set up as of now are the following:
   - develop
@@ -1118,9 +1117,14 @@ The workspaces - (located at <code>~/WS/</code>) - that are set up as of now are
   - additionally every person working on the sim should create their own workspace</p>
 <h4 id="state-2711">State 27.11</h4>
 <ul>
-<li>workspace <strong>develop</strong> got every repo that was on <code>feat-sim</code> updated by merging the <code>production</code>branch into them</li>
+<li>workspace <strong>develop</strong> got every repo that was on <code>feat-sim</code> updated by merging the <code>production</code>branch into them<ul>
+<li>the repos that were on develop were updated to production</li>
+</ul>
+</li>
 <li>workspace <strong>develop</strong> was then used as the basis for every other workspace</li>
 </ul>
+<hr />
+<h4 id="startrun-multiple-sims">start/run multiple sims</h4>
 <pre><code class="language-bash">ssh conbotics@192.168.1.101
 </code></pre>
 <pre><code class="language-bash">start_roshl develop 2
