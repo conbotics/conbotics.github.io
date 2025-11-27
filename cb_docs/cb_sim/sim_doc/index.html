@@ -361,10 +361,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#current-ipsaddresses" class="md-nav__link">
+  <a href="#current-ip" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Current IP's/Addresses
+        Current IP
       
     </span>
   </a>
@@ -976,7 +976,7 @@
 <li>cb_vision</li>
 </ol>
 <p>To checkout to the corresponding branch in all the repositories:</p>
-<pre><code>vcs custom --args checkout feat-sim
+<pre><code class="language-bash">vcs custom --args checkout feat-sim
 </code></pre>
 <ol>
 <li>
@@ -1018,27 +1018,26 @@
 <pre><code class="language-bash">    &lt;plugin name=&quot;ros_link_attacher_plugin&quot; filename=&quot;libgazebo_ros_link_attacher.so&quot;/&gt;
 </code></pre>
 <p><strong>Gazebo standalone start</strong></p>
-<pre><code class="language-bash">/usr/bin/gazebo ~/catkin_ws/src/cb_base/cb_base_gazebo/worlds/room_90s.world
+<pre><code class="language-bash">gazebo ~/catkin_ws/src/cb_base/cb_base_gazebo/worlds/room_90s.world
 </code></pre>
-<p>(removed gazebo alias - command gazebo works again)</p>
 <ul>
-<li>Place objects I.e. boxes - transform S/R/T (Scale/Rotation/Translation)</li>
+<li>Place objects I.e. boxes - transform with keys <code>S/R/T</code> (Scale/Rotation/Translation)</li>
 <li>After editing - save as new world. Edit Labels accordingly in the <code>.world</code> file for semantic segmentation.</li>
 </ul>
 <p><strong>Labels are:</strong> wall; ceiling; floor; other; door; window; person; suv; sprayarm</p>
+<ul>
+<li>re-introduce plugin after .world file is saved</li>
+</ul>
+<pre><code class="language-bash">    &lt;plugin name=&quot;ros_link_attacher_plugin&quot; filename=&quot;libgazebo_ros_link_attacher.so&quot;/&gt;
+</code></pre>
 <p><code>room_90s_long_wall_hole_obstacles.world</code></p>
 <ul>
 <li><em>map</em> gets selected inside <code>start_sim_world.launch</code></li>
 </ul>
 <p><img alt="room_90s_long_wall_hole_obstacles" src="../images/14.png" title="room_90s_long_wall_hole_obstacles" /></p>
-<h4 id="current-ipsaddresses">Current IP's/Addresses</h4>
+<h4 id="current-ip">Current IP</h4>
 <ul>
 <li><code>192.168.1.101</code> - local ip</li>
-<li><code>100.114.232.9</code> - netbird ip</li>
-<li><a href="http://localhost:5173/"><code>http://localhost:5173/</code></a> - gui</li>
-<li><a href="http://localhost:8081"><code>http://localhost:8081</code></a> - gzweb</li>
-<li><a href="http://192.168.1.101:8081"><code>http://192.168.1.101:8081</code></a> - local gzweb access</li>
-<li><a href="http://100.114.232.9:8081"><code>http://100.114.232.9:8081</code></a> - remote gzweb access</li>
 </ul>
 <h2 id="2-connection-startrun">2. Connection &amp; Start/Run</h2>
 <h3 id="21-local">2.1 local</h3>
