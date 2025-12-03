@@ -16,7 +16,7 @@ if ! command -v expect &>/dev/null; then
 fi
 
 expect <<EOF
-spawn cryptsetup luksAddKey --key-slot 2 /dev/sda1
+spawn cryptsetup luksAddKey --key-slot 1 /dev/sda1
 expect "Enter any existing passphrase:"
 send "$existing_pass\r"
 expect "Enter new passphrase for key slot:"
@@ -27,7 +27,7 @@ expect eof
 EOF
 
 echo "$new_pass" | cryptsetup luksKillSlot /dev/sda1 0
-echo "$new_pass" | cryptsetup luksKillSlot /dev/sda1 1
+echo "$new_pass" | cryptsetup luksKillSlot /dev/sda1 2
 
 echo "$new_pass" | clevis luks bind -f -s 0 -d /dev/sda1 tpm2 '{}'
 
