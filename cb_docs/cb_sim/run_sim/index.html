@@ -450,13 +450,6 @@
   <h1>Run sim</h1>
 
 <h2 id="multiple-simultaneous-simulations-setup-in-headless-mode">Multiple simultaneous Simulations setup in Headless Mode</h2>
-<p><strong>NOTE:</strong>
-The workspaces - (located at <code>~/WS/</code>) - that are set up as of now are the following:
-  - develop
-  - testing
-  - vision
-  - sim_1, sim_2, sim_3, sim_4 
-  - additionally every person working on the sim should create their own workspace</p>
 <h4 id="state-2711">State 27.11</h4>
 <ul>
 <li>workspace <strong>develop</strong> got every repo that was on <code>feat-sim</code> updated by merging the <code>production</code>branch into them<ul>
@@ -486,10 +479,10 @@ The workspaces - (located at <code>~/WS/</code>) - that are set up as of now are
 join_roshl develop 2
 </code></pre>
 <ul>
-<li><strong>1st argument</strong> <code>develop</code> selects the workspace (name of the workspace inside home dir.)</li>
+<li><strong>1st argument</strong> <code>develop</code> selects the workspace (name of the workspace inside ~/WS/ Dir.)</li>
 <li>maps ~/WS/develop/catkin_ws to ~/catkin_ws inside the docker</li>
-<li><strong>2nd argument&lt;</strong> <code>2</code> sets the instance number - each container should start by using a custom instance number</li>
-<li>this iterated the container assigned IP up by <strong>2</strong>, i.e. x.202 instead of x.200</li>
+<li><strong>2nd argument</strong> <code>2</code> sets the instance number - This way each container gets a unique IP by using the <code>Macvlan</code> network configuration</li>
+<li>this iterates the assigned container IP up by the specified instance number</li>
 </ul>
 <p><strong>Output:</strong></p>
 <pre><code class="language-bash">Starting container: ros-noetic-develop-2-hl
