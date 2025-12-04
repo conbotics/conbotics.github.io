@@ -420,6 +420,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#how-to-change-the-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to change the map
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -558,6 +569,36 @@ Total Simulations Running: 2
 <p><strong>USAGE:</strong></p>
 <p><code>rosremote 2</code> - would set the ip for the given container, i.e. <code>IP</code> for <code>instance 2</code></p>
 <hr />
+<h4 id="how-to-change-the-map">How to change the map</h4>
+<ol>
+<li>In cb_base/cb_base_gazebo/launch/start_sim_world.launch change line 10 to the prefered world:</li>
+</ol>
+<pre><code class="language-start_sim_world.launch">&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;launch&gt;
+    &lt;arg name=&quot;paused&quot; default=&quot;false&quot; doc=&quot;Starts gazebo in paused mode&quot;/&gt;
+    &lt;arg name=&quot;gui&quot; default=&quot;false&quot; doc=&quot;Starts gazebo gui&quot;/&gt;
+    &lt;arg name=&quot;verbose&quot; default=&quot;false&quot; doc=&quot;verbose&quot;/&gt;
+    &lt;arg name=&quot;extra_gazebo_args&quot; default=&quot;&quot; doc=&quot;extra gazebo args like --lockstep&quot;/&gt;
+    &lt;!-- startup simulated world --&gt;
+    &lt;include file=&quot;$(find gazebo_ros)/launch/empty_world.launch&quot;&gt;
+        &lt;arg name=&quot;world_name&quot;
+             default=&quot;$(find cb_gazebo_worlds)/worlds/appartement_singapore_no_doors_ceiling.world&quot;/&gt;
+        &lt;arg name=&quot;paused&quot; value=&quot;$(arg paused)&quot;/&gt;
+        &lt;arg name=&quot;gui&quot; value=&quot;$(arg gui)&quot;/&gt;
+        &lt;arg name=&quot;verbose&quot; value=&quot;$(arg verbose)&quot;/&gt;
+        &lt;!-- &lt;arg name=&quot;extra_gazebo_args&quot; value=&quot;$(arg extra_gazebo_args)&quot;/&gt; --&gt;
+    &lt;/include&gt;
+&lt;/launch&gt;
+</code></pre>
+<ol>
+<li>In cb_bringup/launch/start_all_gazebo.launch change the spawn x and y coordinates to the desired location. (Leave Z untouched)</li>
+</ol>
+<p>Note: For the Singapore appartements the X and Y coordinates for the individual rooms are as following:
+Room A: x: 11.0 y:  0.5
+Room B: x:  7.0 y:  2.5
+Room C: x:  4.0 y:  2.5
+Room D: x:  1.5 y:  2.3
+Room E: x:  7.x y: -0.2</p>
 
 
 
