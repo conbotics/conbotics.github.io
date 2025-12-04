@@ -19,7 +19,7 @@
     
     
       
-        <title>Simulation - MalerRoboter Docs</title>
+        <title>Run sim - MalerRoboter Docs</title>
       
     
     
@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#simulation" class="md-skip">
+        <a href="#multiple-simultaneous-simulations-setup-in-headless-mode" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Simulation
+              Run sim
             
           </span>
         </div>
@@ -256,8 +256,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -266,35 +264,169 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#to-run-the-system-on-a-gazebo-simulation" class="md-nav__link">
+  <a href="#multiple-simultaneous-simulations-setup-in-headless-mode" class="md-nav__link">
     <span class="md-ellipsis">
       
-        To run the system on a Gazebo simulation:
+        Multiple simultaneous Simulations setup in Headless Mode
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multiple simultaneous Simulations setup in Headless Mode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#state-2711" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        State 27.11
       
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#to-run-only-the-arm" class="md-nav__link">
+  <a href="#startrun-multiple-sims" class="md-nav__link">
     <span class="md-ellipsis">
       
-        To run only the arm:
+        start/run multiple sims
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="start/run multiple sims">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#to-do" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        TO-DO:
+        2.
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#access-points-for-given-example-above" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access Points (for given example above):**
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remote-rviz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remote Rviz
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extra-utilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extra utilities
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Extra utilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-see-which-and-how-many-simulations-are-running" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to see which and how many simulations are running
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -315,70 +447,124 @@
 
 
 
-<h1 id="simulation">Simulation</h1>
-<p>As of the date of this commit, the following should function, assuming you have all the relevant repositories, dependencies from the setup, and initial ros setup complete.</p>
-<h2 id="to-run-the-system-on-a-gazebo-simulation">To run the system on a Gazebo simulation:</h2>
-<ol>
-<li>This step is only necessary until the simulation branch is merged into develop, change the following repositories in your workspace to the branch <code>feat-sim</code>:</li>
-<li>cb_base</li>
-<li>cb_bringup</li>
-<li>cb_config</li>
-<li>cb_core</li>
-<li>cb_sprayarm_description</li>
-<li>cb_vision</li>
-</ol>
-<p>To checkout to the corresponding branch in all the repositories:</p>
-<pre><code>vcs custom --args checkout feat-sim
-</code></pre>
-<ol>
-<li>Make sure your bash environment has the variables <code>ARM_NUMBER</code>, <code>BASE_NUMBER</code>, and <code>ROBOT_NUMBER</code> set.</li>
-</ol>
-<pre><code>eg.
-export ARM_NUMBER=04
-export BASE_NUMBER=04
-export ROBOT_NUMBER=04
-</code></pre>
-<ol>
-<li>
-<p>In a terminal window, run <code>roslaunch cb_bringup startup_node.launch</code>.</p>
+  <h1>Run sim</h1>
+
+<h2 id="multiple-simultaneous-simulations-setup-in-headless-mode">Multiple simultaneous Simulations setup in Headless Mode</h2>
+<p><strong>NOTE:</strong>
+The workspaces - (located at <code>~/WS/</code>) - that are set up as of now are the following:
+  - develop
+  - testing
+  - vision
+  - sim_1, sim_2, sim_3, sim_4 
+  - additionally every person working on the sim should create their own workspace</p>
+<h4 id="state-2711">State 27.11</h4>
+<ul>
+<li>workspace <strong>develop</strong> got every repo that was on <code>feat-sim</code> updated by merging the <code>production</code>branch into them<ul>
+<li>the repos that were on develop were updated to production</li>
+</ul>
 </li>
-<li>
-<p>To visualize in rviz:</p>
-</li>
-</ol>
-<pre><code>rviz -d ~/catkin_ws/src/cb_bringup/config/rviz_config/3d_visualizer rviz
+<li>workspace <strong>develop</strong> was then used as the basis for every other workspace</li>
+</ul>
+<hr />
+<h2 id="startrun-multiple-sims">start/run multiple sims</h2>
+<p><strong>Quick overview:</strong>
+1. Connect via ssh
+2. Start/Join container
+3. Run the bridge nodes
+4. Run the Gazebo nodes
+5. Start gazebo interactive web view server
+6. Configure each access point (whether it be remote rviz, gzweb, GUI)</p>
+<h3 id="1"><strong>1.</strong></h3>
+<pre><code class="language-bash">ssh conbotics@192.168.1.101
 </code></pre>
-<ol>
-<li>To control via the GUI app, build the <a href="https://github.com/conbotics/cb_ui_app">UI</a> on your machine, and run it in a terminal window. In the cb_ui_app folder, run:</li>
-</ol>
-<pre><code>docker compose up -d
+<ul>
+<li>3 seperate <code>ssh</code> sessions should suffice for the basic pipeline</li>
+</ul>
+<h3 id="2"><strong>2.</strong></h3>
+<pre><code class="language-bash">start_roshl develop 2
+
+join_roshl develop 2
 </code></pre>
-<ol>
-<li>
-<p>In a browser, go to the address <code>http://localhost:5173</code> to view the app ,and from the splash screen, go to the Settings, and change the <strong>Robot IP</strong> to <code>localhost</code>. If you press the <code>Start</code> button now, it should say <code>Connected</code> in the top left corner.</p>
-</li>
-<li>
-<p>On your machine, go to the file <code>cb_config/process_configs/process.yaml</code> and change the parameter <code>config/general/process/simulation</code> and <code>config/sprayarm/settings/simulation</code> to <code>True</code>.</p>
-</li>
-<li>
-<p>Run the Gazebo launch file:</p>
-</li>
-</ol>
-<pre><code>roslaunch cb_bringup start_all_gazebo.launch
+<ul>
+<li><strong>1st argument</strong> <code>develop</code> selects the workspace (name of the workspace inside home dir.)</li>
+<li>maps ~/WS/develop/catkin_ws to ~/catkin_ws inside the docker</li>
+<li><strong>2nd argument&lt;</strong> <code>2</code> sets the instance number - each container should start by using a custom instance number</li>
+<li>this iterated the container assigned IP up by <strong>2</strong>, i.e. x.202 instead of x.200</li>
+</ul>
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">Starting container: ros-noetic-develop-2-hl
+Assigned IP: 192.168.1.202
+ROS_MASTER_URI: http://192.168.1.202:11311
+GAZEBO_MASTER_URI: http://192.168.1.202:11345
+Workspace: /home/conbotics/WS/develop/catkin_ws
 </code></pre>
-<p>Wait until you see <code>[attach_sprayarm-9] process has finished cleanly</code> before unpausing the Gazebo simulation.</p>
-<ol>
-<li>You should be able to use the simulation now.</li>
-</ol>
-<h2 id="to-run-only-the-arm">To run only the arm:</h2>
-<pre><code>roslaunch cb_bringup start_sprayarm_sim.launch
+<h3 id="3"><strong>3.</strong></h3>
+<pre><code class="language-bash">bridge
 </code></pre>
-<h2 id="to-do">TO-DO:</h2>
-<p>include doc. for following: (GUI APP)
-get gui repo (gui "app")
-docker compose up -d (apt install docker.io)
-feat-merge-redesign</p>
-<p>[ERROR] [/rviz_1760716691584881570:149]: Object recognition action: Unable to connect to move_group action server within allotted time</p>
+<ul>
+<li>use the configuration example as shown in <strong>Access Points</strong></li>
+<li>Wait until you see something along the lines of <code>MR05 (Simulation)</code> in the upper left corner of your gui</li>
+<li>Restart if it only shows disconnected</li>
+</ul>
+<h3 id="4"><strong>4.</strong></h3>
+<pre><code class="language-bash">gazebo_pipe
+</code></pre>
+<ul>
+<li>If <code>attach failed</code> <strong>error</strong> appears or <code>gazebo-1</code> process <strong>error</strong> -&gt; restart <code>gazebo_pipe</code> - bridge does not need to be restarted</li>
+</ul>
+<h3 id="5"><strong>5.</strong></h3>
+<pre><code class="language-bash">gzweb
+</code></pre>
+<p><strong>launches:</strong> cd ~/gzweb &amp;&amp; npm start -p 8081</p>
+<ul>
+<li>To start the gazebo sim, <em>either</em> enter:</li>
+</ul>
+<pre><code class="language-bash">rosservice call /gazebo/unpause/physics
+</code></pre>
+<p><strong>.OR.</strong></p>
+<ul>
+<li>press on play inside gzweb (the interactive gazebo web page)</li>
+</ul>
+<h3 id="6"><strong>6.</strong></h3>
+<h4 id="access-points-for-given-example-above">Access Points (for given example above):**</h4>
+<p><code>GUI_APP</code> Network setting: <code>IP</code>: 192.168.1.202 <code>Port</code>: 9090</p>
+<ul>
+<li>inside <code>settings for all walls</code> - enter a plausible <code>ceiling height</code> - otherwise the builder will fail</li>
+</ul>
+<p><code>Gazebo Online view</code> Address: <strong>192.168.1.202</strong>:8081</p>
+<h4 id="remote-rviz">Remote Rviz</h4>
+<p><code>ROS_IP</code>: <strong>Remote machine IP</strong></p>
+<p><code>ROS_MASTER_URI</code>: http://192.168.1.202:11311</p>
+<h3 id="extra-utilities">Extra utilities</h3>
+<h4 id="how-to-see-which-and-how-many-simulations-are-running">How to see which and how many simulations are running</h4>
+<ul>
+<li>inside terminal just enter <code>list_sims</code></li>
+</ul>
+<pre><code class="language-bash">--- Running ROS Noetic Simulations ---
+INSTANCE ID     WORKSPACE            IP ADDRESS      CONTAINER NAME                          
+--------------------------------------------------------------------------------------------
+1               atlas                192.168.1.201   ros-noetic-atlas-1-hl                   
+2               develop              192.168.1.202   ros-noetic-develop-2-hl                 
+--------------------------------------------------------------------------------------------
+Total Simulations Running: 2
+</code></pre>
+<p><strong>Bash script for ROS env var export</strong></p>
+<pre><code class="language-bash">rosremote() {
+        local instance=$1
+        local ip_base=200
+        local ip_sfx=$((ip_base + instance))
+        local ros_ip=192.168.1.${ip_sfx}
+
+        export ROS_IP=$(hostname -I | awk '{print $1}')
+        export ROS_MASTER_URI=http://${ros_ip}:11311
+        echo &quot;$ROS_IP&quot;
+        echo &quot;$ROS_MASTER_URI&quot;
+
+}
+</code></pre>
+<p><strong>USAGE:</strong></p>
+<p><code>rosremote 2</code> - would set the ip for the given container, i.e. <code>IP</code> for <code>instance 2</code></p>
+<hr />
 
 
 

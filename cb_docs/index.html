@@ -386,7 +386,7 @@
 <h2 id="robot-folders-on-the-robots">Robot Folders on the Robots</h2>
 <p>The operating system of the robots launches by default the roscore, startup node and the catmux session. This process are called from the default robot folders environment <code>robot_wss/develop</code>. To add a new environmnt use <code>fzirob add_environment my_env</code> and then source it with <code>ce my_env</code>. Then you can copy the source to your environment like so: <code>cp -r ~/robot_wss/develop/catkin_ws/src ~/robot_wss/my_env/catkin_ws/src</code>. After copying <code>src</code> you can build the code with the command <code>makeros</code>, which can be called from any location in the file system, if you have sourced the environment before. Finally, you can now kill the running startup node, source again (necessary again after build), start a new startup node and catmux session with running the command <code>robce my_env</code>. </p>
 <h2 id="using-the-simulation-on-the-robot">Using the simulation on the robot:</h2>
-<p><a href="cb_sim/simulation/">Simulation docs</a></p>
+<p><a href="cb_sim/simulation.md">Simulation docs</a></p>
 <h2 id="for-our-customers">For our customers</h2>
 <p><a href="support/troubleshooting/">Troubleshooting</a></p>
 
