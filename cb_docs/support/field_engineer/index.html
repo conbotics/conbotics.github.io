@@ -547,7 +547,12 @@ or:
 </code></pre>
 <p>cansend can0 009#01: 6th axis in
 cansend can0 009#02: 6th axis out</p>
-<pre><code>
+<pre><code>### To check 6th axis position
+
+</code></pre>
+<p>rostopic echo /spraybot/base/mounting_point_state</p>
+<pre><code>1 is in, 2 is out
+
 ### To make USB syncable
 </code></pre>
 <p>lsblk -f #to find the USB UUID
@@ -558,6 +563,16 @@ journalctl -u usb-sync-XXXX-XXXX.service -f #to verify, after you replug the USB
 </code></pre>
 <p>rosparam set /config/general/user/record_rosbag true
 python3 src/cb_bringup/scripts/record_rosbag.py</p>
+<pre><code>
+### To initialize remotely
+</code></pre>
+<p>robce
+bash ./cb_bringup/catmux/catmux_session_manager.bash</p>
+<pre><code>
+### To see rosout:
+</code></pre>
+<p>rostopic echo /rosout_agg | grep 'msg:' | grep -v -e "Odom:" -e "rtabmap"</p>
+<h1 id="exclude-more-lines-with-the-e">exclude more lines with the `-e "..."</h1>
 <pre><code>
 ### Copy to usb
 </code></pre>

@@ -1005,6 +1005,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#414-clean-robot-folders-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.14 Clean robot folders environment
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1779,6 +1790,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#414-clean-robot-folders-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.14 Clean robot folders environment
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1878,6 +1900,7 @@
 <li><a href="#27-check-arm-calibration">2.7 Mechanical: Check arm calibration</a>  </li>
 <li><a href="#25-check-electrical-cables">2.5 Mechanical: Check electrical cables</a>  </li>
 <li><a href="#43-check-missing-nodes">4.3 Software: Check missing nodes</a>  </li>
+<li><a href="#414-clean-robot-folders-environment">4.14 Clean robot folders environment</a></li>
 </ul>
 </details>
 <details>
@@ -2228,6 +2251,12 @@ done
 <pre><code>candump can1
 </code></pre>
 <p>Each motor should reply with 0x580 + ID. If one motor doesn’t reply, it is likely offline or not powered.</p>
+<h5 id="414-clean-robot-folders-environment">4.14 Clean robot folders environment</h5>
+<p>Make sure that <code>ROS_PACKAGE_PATH</code> and <code>CMAKE_PREFIX_PATH</code> do not contain paths belonging to another robot folders environment. If they do, then clean that environment</p>
+<pre><code>fzirob change_environment develop
+fzirob clean
+fzirob change_environment testing
+</code></pre>
 
 
 
