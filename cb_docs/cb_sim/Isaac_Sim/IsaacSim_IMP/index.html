@@ -329,6 +329,56 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#solution-for-given-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution for given Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Solution for given Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#solution-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution #1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution #2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution #3
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -386,6 +436,46 @@
 </ul>
 </li>
 </ul>
+<h2 id="solution-for-given-setup">Solution for given Setup</h2>
+<ol>
+<li>Ubuntu 24</li>
+<li>Containerized Ros 1 Noetic</li>
+</ol>
+<h3 id="solution-1">Solution #1</h3>
+<p><strong>Container-Native Approach</strong>
+- Isaac Sim Version 2022.2.1 or 2023.1.1
+    - These Version Have Ros 1 Bridge enabled (natively)
+    - Simulator speaks ros 1 - no translation nodes</p>
+<ul>
+<li>
+<p>Setup:</p>
+<ul>
+<li>Run Both (Isaac Sim + ROS Noetic) containerized (shared network)<ul>
+<li>Run Isaac Sim in Headless Mode<ul>
+<li>use Omniverse Streaming Client (installed natively on Ubuntu host)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Docker command:
+<code>docker run --name isaac-sim --entrypoint ./runheadless.native.sh --gpus all -e "ACCEPT_EULA=Y" --rm --net=host nvcr.io/nvidia/isaac-sim:2022.2.1</code> .OR. <code>2023.1.1</code></p>
+</li>
+</ul>
+<h3 id="solution-2">Solution #2</h3>
+<p><strong>Bridge-Translation Approach</strong>
+- Run Isaac Sim 5.x Natively + ROS 1 Bridge Node
+- Use ROS 2 Bridge
+    - Isaac Sim publishes to ROS 2
+    - <strong>Intermediate Container</strong> Runs <code>ros1_bridge</code> (<code>dynamic_bridge</code>) - Converts from ROS 2 -&gt; ROS 1
+    - Noetic Container</p>
+<ul>
+<li>This Method adds latency (Is Isaac Sim 5.x really needed??)</li>
+</ul>
+<h3 id="solution-3">Solution #3</h3>
+<p>SWITCH to Ubuntu 20/22</p>
 
 
 
