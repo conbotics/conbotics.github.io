@@ -307,6 +307,28 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#advantages-of-isaac-sim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advantages of Isaac Sim
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-of-problems-with-a-migration-isaac-sim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        List of Problems with a migration Isaac sim
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -328,22 +350,41 @@
 
 <h2 id="installationsetup">Installation/setup</h2>
 <p><a href="https://docs.isaacsim.omniverse.nvidia.com/5.1.0/installation/install_workstation.html">Workspace Isaac Sim installation</a></p>
-<p>Isaac Sim <strong>4.5</strong> Seems to bring most compatability with Ros 1 Noetic
-- ROS 1 Bridge : isaacsim.ros1.bridge
-- Isaac ROS NITROS Bridge for ROS1 -&gt; ROS2 Connection</p>
+<p>Isaac Sim 4.5 Seems to bring most compatability with Ros 1 Noetic
+    - ROS 1 Bridge : isaacsim.ros1.bridge
+    - Isaac ROS NITROS Bridge for ROS1 -&gt; ROS2 Connection</p>
 <h2 id="migration-gazebo-classic-gazebo-sim">Migration Gazebo Classic -&gt; Gazebo Sim</h2>
-<p><a href="https://ibrahimmansur4.medium.com/migrating-from-gazebo-classic-to-gazebo-sim-a-practical-guide-804af2011011">Migration Gazebo to Gazebo Sim</a></p>
+<p><a href="https://ibrahimmansur4.medium.com/migrating-from-gazebo-classic-to-gazebo-sim-a-practical-guide-804af2011011">Migration Gazebo to Gazebo Sim</a>
+(Should)</p>
 <h2 id="ros-related">Ros related</h2>
 <p><a href="https://nvidia-isaac-ros.github.io/v/release-3.1/concepts/nitros_bridge/setup_ros1_docker.html">Ros noetic contianer with ros 1 bridge - NVIDIA</a></p>
 <p><a href="https://koheiotsuka701.medium.com/running-isaac-sim-and-isaac-ros-on-ubuntu-24-04-bf9eaf550837">Running isaac sim and Isaac ros on ubuntu 24</a></p>
 <p><a href="https://docs.isaacsim.omniverse.nvidia.com/4.2.0/ros_tutorials/tutorial_ros_ros1_to_ros2.html">ROS 1 to ROS 2 - Isaac Sim</a></p>
-<p>export ROS_MASTER_URI=http://{Container.IP}:11311
-export ROS_IP=192.168.1.(local)
-./isaac-sim.sh</p>
 <h2 id="streaming-isaac-sim-equivalent-to-gzweb">Streaming Isaac Sim (equivalent to GZWEB)</h2>
 <ul>
 <li>omni.kit.livestream.app - Isaac sim extension - works with 4.5
 <a href="https://docs.omniverse.nvidia.com/kit/docs/omni.kit.livestream.app/latest/Overview.html">Isaac Sim livestreaming</a></li>
+</ul>
+<h2 id="advantages-of-isaac-sim">Advantages of Isaac Sim</h2>
+<ul>
+<li>Photorealism &amp; Ray Tracing: real-time raytracing, global illumination, physically based materials -&gt; suitable for training vision-based AI<ul>
+<li>Isaac Sim can accrutely handle transparency/reflections</li>
+</ul>
+</li>
+<li>Isaac Sim is GPU accelerated</li>
+<li>USD assets are highly portable and modular compared to Gazebos classics SDF/URDF</li>
+<li>Synthetic Data Generation (SDG) -&gt; Isaac Sim includes Replicator: a tool designed to generate massive datasets for training AI Models<ul>
+<li>with automatic domain randomization (varying lighting, textures, positions)</li>
+</ul>
+</li>
+<li>PhysX: Allows for accurate simulation of Robot dynamics</li>
+</ul>
+<h2 id="list-of-problems-with-a-migration-isaac-sim">List of Problems with a migration Isaac sim</h2>
+<ul>
+<li>Isaac Sim 4.5 runs on Python 3.10<ul>
+<li>older version might be of help if containerized ros noetic &amp; ros bridge workaround doesent work</li>
+</ul>
+</li>
 </ul>
 
 
