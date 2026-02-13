@@ -379,6 +379,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation:
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -477,6 +488,57 @@
 <h3 id="solution-3">Solution #3</h3>
 <p>SWITCH to Ubuntu 20/22
     Then Solution #1 except Isaac Sim doesent need to be containerized</p>
+<h2 id="implementation">Implementation:</h2>
+<pre><code class="language-bash">#!/bin/bash
+
+# 1. DEFINE VARIABLES
+PHYSICAL_IFACE=&quot;eno1&quot;        # REPLACE with your actual interface (check via 'ip addr')
+SHIM_NAME=&quot;macvlan-shim&quot;
+SHIM_IP=&quot;192.168.1.220/32&quot;   # A dedicated IP for the host on this network (must be unused)
+CONTAINER_ROS_IP=&quot;192.168.1.214&quot;
+CONTAINER_ISAAC_IP=&quot;192.168.1.215&quot;
+
+# 2. CREATE THE SHIM INTERFACE
+sudo ip link add $SHIM_NAME link $PHYSICAL_IFACE type macvlan mode bridge
+
+# 3. ASSIGN IP AND BRING UP
+sudo ip addr add $SHIM_IP dev $SHIM_NAME
+sudo ip link set $SHIM_NAME up
+
+# 4. ADD STATIC ROUTES TO CONTAINERS
+# This forces traffic for the containers to go through the shim, not the physical port
+sudo ip route add $CONTAINER_ROS_IP/32 dev $SHIM_NAME
+sudo ip route add $CONTAINER_ISAAC_IP/32 dev $SHIM_NAME
+
+echo &quot;Shim created. Host ($SHIM_IP) can now reach ROS ($CONTAINER_ROS_IP) and Isaac ($CONTAINER_ISAAC_IP).&quot;
+</code></pre>
+<pre><code class="language-bash">docker run --name isaac-sim \
+  --entrypoint ./runheadless.native.sh \
+  --gpus all \
+  --network macvlan_net \
+  --ip 192.168.1.215 \
+  --privileged \
+  --restart unless-stopped \
+  -e &quot;ACCEPT_EULA=Y&quot; \
+  -e &quot;PRIVACY_CONSENT=Y&quot; \
+  -e &quot;ROS_MASTER_URI=http://192.168.1.214:11311&quot; \
+  -e &quot;ROS_IP=192.168.1.215&quot; \
+  --shm-size=4gb \
+  -v ~/docker/isaac-sim/cache/kit:/isaac-sim/kit/cache:rw \
+  -v ~/docker/isaac-sim/cache/ov:/root/.cache/ov:rw \
+  -v ~/docker/isaac-sim/cache/pip:/root/.cache/pip:rw \
+  -v ~/docker/isaac-sim/cache/glcache:/root/.cache/nvidia/GLCache:rw \
+  -v ~/docker/isaac-sim/cache/computecache:/root/.nv/ComputeCache:rw \
+  -v ~/docker/isaac-sim/logs:/root/.nvidia-omniverse/logs:rw \
+  -v ~/docker/isaac-sim/config:/root/.nvidia-omniverse/config:rw \
+  -v ~/docker/isaac-sim/data:/root/.local/share/ov/data:rw \
+  -v ~/docker/isaac-sim/documents:/root/Documents:rw \
+  nvcr.io/nvidia/isaac-sim:2023.1.1
+</code></pre>
+<p>test</p>
+<pre><code class="language-bash">ping 192.168.1.214  # Should reply (ROS Container)
+ping 192.168.1.215  # Should reply (Isaac Container)
+</code></pre>
 
 
 
